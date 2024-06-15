@@ -17,3 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::prefix('product')->group(function (){
+   Route::view('uzay-bulut-robotu','products.uzay-bulut-robotu');
+});
