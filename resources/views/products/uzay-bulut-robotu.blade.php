@@ -179,7 +179,7 @@
                                                     <div class="product-rating" style="width:90%">
                                                     </div>
                                                 </div>
-                                                <span class="font-small ml-5 text-muted"> 123 değerlendirme</span>
+                                                <a class="font-small ml-5 text-muted" href="#reviews"> 123 değerlendirme</a>
                                             </div>
                                         </div>
                                         <div class="clearfix product-price-cover">
@@ -388,7 +388,7 @@
                                         </tr>
                                         </tbody>
                                     </table>
-                                    <h5 class="section-title style-1 mb-30 mt-30">Müşteri yorumları (123)</h5>
+                                    <h5 class="section-title style-1 mb-30 mt-30" id="reviews">Müşteri yorumları (123)</h5>
                                     <div class="row">
                                         <div class="col-6 comment-item">
                                             <div class="comment-card">

@@ -215,7 +215,7 @@
     <div class="header-middle header-middle-ptb-1 d-none d-lg-block">
         <div class="container">
             <div class="header-wrap">
-                <div class="logo logo-width-1">
+                <div class="logo logo-width-1" style="width: 70%">
                     <a href="index.html"><img src="{{asset('assets/imgs/theme/logo.png')}}" alt="logo"></a>
                 </div>
                 <div class="header-right">
@@ -725,7 +725,7 @@
                         <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
                             <a href="https://www.facebook.com/trendygoodshop/"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg')}}" alt=""></a>
                             <a href="https://www.instagram.com/trendygoods_shop/"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg')}}" alt=""></a>
-                            <a href="https://www.tiktok.com/@trendygoodss"><img src="{{asset('assets/imgs/theme/icons/icon-tiktok.svg')}}" alt=""></a>
+{{--                            <a href="https://www.tiktok.com/@trendygoodss"><img src="{{asset('assets/imgs/theme/icons/icon-tiktok.svg')}}" alt=""></a>--}}
                         </div>
                     </div>
                 </div>
