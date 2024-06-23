@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('new-order', function (Request $request){
+   \Illuminate\Support\Facades\Log::info(json_encode($request->all()));
+});
+

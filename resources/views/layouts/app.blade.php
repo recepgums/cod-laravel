@@ -14,7 +14,7 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.svg')}}">
     <!-- Template CSS -->
-    <link rel="stylesheet" href="{{asset('assets/css/main.css?v=3.4')}}">
+    <link rel="stylesheet"  href="{{asset('assets/css/main.css?v=3.4')}}">
     <style>
         .whatsapp-button {
             position: fixed;
@@ -41,136 +41,6 @@
 
 <body>
 <!-- Quick view -->
-<div class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="detail-gallery">
-                            <span class="zoom-icon"><i class="fi-rs-search"></i></span>
-                            <!-- MAIN SLIDES -->
-                            <div class="product-image-slider">
-                                <figure class="border-radius-10">
-                                    <img src="{{asset('assets/imgs/shop/product-16-2.jpg')}}" alt="product image">
-                                </figure>
-                                <figure class="border-radius-10">
-                                    <img src="{{asset('assets/imgs/shop/product-16-1.jpg')}}" alt="product image">
-                                </figure>
-                                <figure class="border-radius-10">
-                                    <img src="{{asset('assets/imgs/shop/product-16-3.jpg')}}" alt="product image">
-                                </figure>
-                                <figure class="border-radius-10">
-                                    <img src="{{asset('assets/imgs/shop/product-16-4.jpg')}}" alt="product image">
-                                </figure>
-                                <figure class="border-radius-10">
-                                    <img src="{{asset('assets/imgs/shop/product-16-5.jpg')}}" alt="product image">
-                                </figure>
-                                <figure class="border-radius-10">
-                                    <img src="{{asset('assets/imgs/shop/product-16-6.jpg')}}" alt="product image">
-                                </figure>
-                                <figure class="border-radius-10">
-                                    <img src="{{asset('assets/imgs/shop/product-16-7.jpg')}}" alt="product image">
-                                </figure>
-                            </div>
-                            <!-- THUMBNAILS -->
-                            <div class="slider-nav-thumbnails pl-15 pr-15">
-                                <div><img src="{{asset('assets/imgs/shop/thumbnail-3.jpg')}}" alt="product image"></div>
-                                <div><img src="{{asset('assets/imgs/shop/thumbnail-4.jpg')}}" alt="product image"></div>
-                                <div><img src="{{asset('assets/imgs/shop/thumbnail-5.jpg')}}" alt="product image"></div>
-                                <div><img src="{{asset('assets/imgs/shop/thumbnail-6.jpg')}}" alt="product image"></div>
-                                <div><img src="{{asset('assets/imgs/shop/thumbnail-7.jpg')}}" alt="product image"></div>
-                                <div><img src="{{asset('assets/imgs/shop/thumbnail-8.jpg')}}" alt="product image"></div>
-                                <div><img src="{{asset('assets/imgs/shop/thumbnail-9.jpg')}}" alt="product image"></div>
-                            </div>
-                        </div>
-                        <!-- End Gallery -->
-                        <div class="social-icons single-share">
-                            <ul class="text-grey-5 d-inline-block">
-                                <li><strong class="mr-10">Share this:</strong></li>
-                                <li class="social-facebook"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-facebook.svg')}}" alt=""></a></li>
-                                <li class="social-twitter"> <a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-twitter.svg')}}" alt=""></a></li>
-                                <li class="social-instagram"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-instagram.svg')}}" alt=""></a></li>
-                                <li class="social-linkedin"><a href="#"><img src="{{asset('assets/imgs/theme/icons/icon-pinterest.svg')}}" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-sm-12 col-xs-12">
-                        <div class="detail-info">
-                            <h3 class="title-detail mt-30">Colorful Pattern Shirts HD450</h3>
-                            <div class="product-detail-rating">
-                                <div class="pro-details-brand">
-                                    <span> Brands: <a href="shop-grid-right.html">Bootstrap</a></span>
-                                </div>
-                                <div class="product-rate-cover text-end">
-                                    <div class="product-rate d-inline-block">
-                                        <div class="product-rating" style="width:90%">
-                                        </div>
-                                    </div>
-                                    <span class="font-small ml-5 text-muted"> (25 reviews)</span>
-                                </div>
-                            </div>
-                            <div class="clearfix product-price-cover">
-                                <div class="product-price primary-color float-left">
-                                    <ins><span class="text-brand">$120.00</span></ins>
-                                    <ins><span class="old-price font-md ml-15">$200.00</span></ins>
-                                    <span class="save-price  font-md color3 ml-15">25% Off</span>
-                                </div>
-                            </div>
-                            <div class="bt-1 border-color-1 mt-15 mb-15"></div>
-                            <div class="short-desc mb-30">
-                                <p class="font-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi,!</p>
-                            </div>
-
-                            <div class="attr-detail attr-color mb-15">
-                                <strong class="mr-10">Color</strong>
-                                <ul class="list-filter color-filter">
-                                    <li><a href="#" data-color="Red"><span class="product-color-red"></span></a></li>
-                                    <li><a href="#" data-color="Yellow"><span class="product-color-yellow"></span></a></li>
-                                    <li class="active"><a href="#" data-color="White"><span class="product-color-white"></span></a></li>
-                                    <li><a href="#" data-color="Orange"><span class="product-color-orange"></span></a></li>
-                                    <li><a href="#" data-color="Cyan"><span class="product-color-cyan"></span></a></li>
-                                    <li><a href="#" data-color="Green"><span class="product-color-green"></span></a></li>
-                                    <li><a href="#" data-color="Purple"><span class="product-color-purple"></span></a></li>
-                                </ul>
-                            </div>
-                            <div class="attr-detail attr-size">
-                                <strong class="mr-10">Size</strong>
-                                <ul class="list-filter size-filter font-small">
-                                    <li><a href="#">S</a></li>
-                                    <li class="active"><a href="#">M</a></li>
-                                    <li><a href="#">L</a></li>
-                                    <li><a href="#">XL</a></li>
-                                    <li><a href="#">XXL</a></li>
-                                </ul>
-                            </div>
-                            <div class="bt-1 border-color-1 mt-30 mb-30"></div>
-                            <div class="detail-extralink">
-                                <div class="detail-qty border radius">
-                                    <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                    <span class="qty-val">1</span>
-                                    <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
-                                </div>
-                                <div class="product-extra-link2">
-                                    <button type="submit" class="button button-add-to-cart">Add to cart</button>
-                                    <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
-                                    <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
-                                </div>
-                            </div>
-                            <ul class="product-meta font-xs color-grey mt-50">
-                                <li class="mb-5">SKU: <a href="#">FWM15VKT</a></li>
-                                <li class="mb-5">Tags: <a href="#" rel="tag">Cloth</a>, <a href="#" rel="tag">Women</a>, <a href="#" rel="tag">Dress</a> </li>
-                                <li>Availability:<span class="in-stock text-success ml-5">8 Items In Stock</span></li>
-                            </ul>
-                        </div>
-                        <!-- Detail Info -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <header class="header-area header-style-4 header-height-2">
     <div class="header-top header-top-ptb-1 d-none d-lg-block">
         <div class="container">
@@ -341,24 +211,6 @@
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="mega-menu-col col-lg-5">
-                                                <div class="header-banner2">
-                                                    <img src="{{asset('assets/imgs/banner/menu-banner-2.jpg')}}" alt="menu_banner1">
-                                                    <div class="banne_info">
-                                                        <h6>10% Off</h6>
-                                                        <h4>New Arrival</h4>
-                                                        <a href="#">Shop now</a>
-                                                    </div>
-                                                </div>
-                                                <div class="header-banner2">
-                                                    <img src="{{asset('assets/imgs/banner/menu-banner-3.jpg')}}" alt="menu_banner2">
-                                                    <div class="banne_info">
-                                                        <h6>15% Off</h6>
-                                                        <h4>Hot Deals</h4>
-                                                        <a href="#">Shop now</a>
-                                                    </div>
-                                                </div>
-                                            </li>
                                         </ul>
                                     </div>
                                 </li>
@@ -394,16 +246,6 @@
                                                         </ul>
                                                     </li>
                                                 </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-5">
-                                                <div class="header-banner2">
-                                                    <img src="{{asset('assets/imgs/banner/menu-banner-4.jpg')}}" alt="menu_banner1">
-                                                    <div class="banne_info">
-                                                        <h6>10% Off</h6>
-                                                        <h4>New Arrival</h4>
-                                                        <a href="#">Shop now</a>
-                                                    </div>
-                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -441,24 +283,6 @@
                                                         </ul>
                                                     </li>
                                                 </ul>
-                                            </li>
-                                            <li class="mega-menu-col col-lg-5">
-                                                <div class="header-banner2">
-                                                    <img src="{{asset('assets/imgs/banner/menu-banner-5.jpg')}}" alt="menu_banner1">
-                                                    <div class="banne_info">
-                                                        <h6>10% Off</h6>
-                                                        <h4>New Arrival</h4>
-                                                        <a href="#">Shop now</a>
-                                                    </div>
-                                                </div>
-                                                <div class="header-banner2">
-                                                    <img src="{{asset('assets/imgs/banner/menu-banner-6.jpg')}}" alt="menu_banner2">
-                                                    <div class="banne_info">
-                                                        <h6>15% Off</h6>
-                                                        <h4>Hot Deals</h4>
-                                                        <a href="#">Shop now</a>
-                                                    </div>
-                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -763,28 +587,30 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
 </div>
 
-<script src="{{asset('assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>
-<script src="{{asset('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>
+{{--<script src="{{asset('assets/js/vendor/modernizr-3.6.0.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/vendor/jquery-3.6.0.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/vendor/jquery-migrate-3.3.0.min.js')}}"></script>--}}
 <script src="{{asset('assets/js/vendor/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/js/plugins/slick.js')}}"></script>
-<script src="{{asset('assets/js/plugins/jquery.syotimer.min.js')}}"></script>
-<script src="{{asset('assets/js/plugins/wow.js')}}"></script>
-<script src="{{asset('assets/js/plugins/jquery-ui.js')}}"></script>
-<script src="{{asset('assets/js/plugins/perfect-scrollbar.js')}}"></script>
-<script src="{{asset('assets/js/plugins/magnific-popup.js')}}"></script>
-<script src="{{asset('assets/js/plugins/select2.min.js')}}"></script>
-<script src="{{asset('assets/js/plugins/waypoints.js')}}"></script>
-<script src="{{asset('assets/js/plugins/counterup.js')}}"></script>
-<script src="{{asset('assets/js/plugins/jquery.countdown.min.js')}}"></script>
-<script src="{{asset('assets/js/plugins/images-loaded.js')}}"></script>
-<script src="{{asset('assets/js/plugins/isotope.js')}}"></script>
-<script src="{{asset('assets/js/plugins/jquery.vticker-min.js')}}"></script>
-<script src="{{asset('assets/js/plugins/jquery.theia.sticky.js')}}"></script>
-<script src="{{asset('assets/js/plugins/jquery.elevatezoom.js')}}"></script>
-<!-- Template  JS -->
-<script src="{{asset('assets/js/main.js?v=3.4')}}"></script>
-<script src="{{asset('assets/js/shop.js?v=3.4')}}"></script>
+{{--<script src="{{asset('assets/js/plugins/slick.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/jquery.syotimer.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/wow.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/jquery-ui.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/perfect-scrollbar.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/magnific-popup.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/select2.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/waypoints.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/scrollup.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/counterup.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/jquery.countdown.min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/images-loaded.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/isotope.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/jquery.vticker-min.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/jquery.theia.sticky.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/plugins/jquery.elevatezoom.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/main.js?v=3.4')}}"></script>--}}
+{{--<script src="{{asset('assets/js/shop.js?v=3.4')}}"></script>--}}
+
+
 <script>
     document.getElementById('whatsappButton').addEventListener('click', function() {
         const currentUrl = window.location.href;
