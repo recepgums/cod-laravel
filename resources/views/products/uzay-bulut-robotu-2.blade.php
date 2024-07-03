@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.original_app')
 @section('styles')
     <style>
         @keyframes bounce {

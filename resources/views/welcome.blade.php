@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.original_app')
 @section('content')
     <main class="main">
         <section class="home-slider position-relative pt-50">

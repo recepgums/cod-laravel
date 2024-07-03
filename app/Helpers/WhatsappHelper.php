@@ -94,7 +94,7 @@ class WhatsappHelper
             ]);
 
         if ($response->successful()) {
-            return $response->json()['data'];
+            return $response->json();
         } else {
             return $response->body();
         }

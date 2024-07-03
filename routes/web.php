@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::post('order',[Controllers\OrderController::class,'store'])->name('orders.store');
 Route::get('order/{order}/upsell',[Controllers\OrderController::class,'upsell'])->name('upsell');
+Route::get('order/{order}/tesekkurler',[Controllers\OrderController::class,'thankyou'])->name('thankyou');
 Route::post('order/{order}/add-to-cart',[Controllers\OrderController::class,'addToCart'])->name('add-to-cart');
 Route::post('order/{order}/finish-order',[Controllers\OrderController::class,'finishOrder'])->name('finish-order');
 

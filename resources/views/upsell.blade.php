@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Evara - eCommerce HTML Template</title>
+    <title>Siparişinizi aldık🥳</title>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,11 +12,109 @@
     <meta property="og:url" content="">
     <meta property="og:image" content="">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/theme/favicon.svg">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/imgs/theme/favicon.svg')}}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets/css/main.css?v=3.4')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- TikTok Pixel Code Start -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t;
+            var ttq = w[t] = w[t] || [];
+            ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) {
+                t[e] = function () {
+                    t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            };
+            for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+            ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+                return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
+                ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
+                n = document.createElement("script")
+                ;n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
+                e = document.getElementsByTagName("script")[0];
+                e.parentNode.insertBefore(n, e)
+            };
+
+
+            ttq.load('COCFFQBC77U3RPP2KRIG');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
     <style>
+        .contact-widget {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .contact-widget .logo {
+            margin-bottom: 20px;
+        }
+        .contact-widget h5 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .contact-widget p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #666;
+        }
+        .contact-widget p i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+        .contact-widget p strong {
+            font-weight: bold;
+            color: #333;
+        }
+        .footer-list {
+            list-style: none; /* Varsayılan liste stilini kaldır */
+            padding: 0;
+        }
+
+        .footer-list li {
+            padding: 10px; /* İç boşluk ekle */
+            background-color: #f9f9f9; /* Hafif arka plan rengi ekle */
+            border-radius: 5px; /* Köşeleri yuvarla */
+            transition: background-color 0.3s ease; /* Geçiş efekti ekle */
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-list li a {
+            color: #007bff; /* Bağlantı rengi */
+            text-decoration: none; /* Alt çizgiyi kaldır */
+            transition: color 0.3s ease; /* Geçiş efekti ekle */
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-list li a:hover {
+            color: #0056b3; /* Fare üzerine geldiğinde bağlantı rengini değiştir */
+        }
+
+        .footer-list li a::before {
+            content: '\f0a9'; /* Font Awesome ikonu */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 10px; /* Metin ile ikon arasına boşluk ekle */
+            color: #007bff; /* İkon rengi */
+        }
+
+        .footer-list li:hover {
+            background-color: #e9ecef; /* Fare üzerine geldiğinde arka plan rengini değiştir */
+        }
         .whatsapp-button {
             position: fixed;
             bottom: 20px;
@@ -90,16 +188,16 @@
                                     </div>
                                 </div>
                                 <div class="row mb-30 mx-auto">
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <button class="btn w-100 btn-sm add-to-cart" data-product-name="TrendSand Kum Sanati"><i
                                                 class="fi-rs-shopping-bag mr-5"></i>Sepete Ekle
                                         </button>
                                     </div>
-                                    <div class="col-6">
+                                 {{--   <div class="col-6">
                                         <button class="btn w-100 btn-sm btn-secondary" data-toggle="collapse"
                                                 data-target="#details-1">Detaylarını Gör <i
                                                 class="fi-rs-angle-down mr-5"></i></button>
-                                    </div>
+                                    </div>--}}
                                 </div>
                                 <div id="details-1" class="collapse px-3 pb-2">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
@@ -114,7 +212,7 @@
                 @csrf
                 <button class="btn w-100 btn-sm btn-success"><i
                         class="fi-rs-check mr-5"></i>
-                    Siparişim Tamamla
+                    Siparişimi Tamamla
                 </button>
             </form>
         </div>
@@ -122,39 +220,31 @@
 </main>
 
 
-<footer class="main">
+<footer class="main mt-3">
     <section class="section-padding footer-mid">
         <div class="container pt-15 pb-20">
             <div class="row">
                 <div class="col-lg-4 col-md-6">
-                    <div class="widget-about font-md mb-md-5 mb-lg-0">
-                        <div class="logo logo-width-1 wow fadeIn animated">
-                            <a href="index.html"><img style="height: 50px" src="{{asset('assets/imgs/theme/logo.png')}}"
-                                                      alt="logo"></a>
+                    <div class="contact-widget">
+                        <div class="logo logo-width-1 wow fadeIn animated text-center mb-2">
+                            <a href="index.html"><img style="height: 50px" src="{{asset('assets/imgs/theme/logo.png')}}" alt="logo"></a>
                         </div>
-                        <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">İletişim</h5>
                         <p class="wow fadeIn animated">
+                            <i class="fas fa-map-marker-alt"></i>
                             <strong>Adres: </strong>Silahtarağa Caddesi no:1/20, Eyüp/İstanbul 34050
                         </p>
                         <p class="wow fadeIn animated">
+                            <i class="fas fa-phone-alt"></i>
                             <strong>Telefon: </strong>0543 743 42 67
                         </p>
                         <p class="wow fadeIn animated">
+                            <i class="fas fa-clock"></i>
                             <strong>Çalışma Saatleri: </strong>10:00 - 20:00, Pzt - Cmt
                         </p>
-                        <h5 class="mb-10 mt-30 fw-600 text-grey-4 wow fadeIn animated">Bizi Takip Edin</h5>
-                        <div class="mobile-social-icon wow fadeIn animated mb-sm-5 mb-md-0">
-                            <a href="https://www.facebook.com/trendygoodshop/"><img
-                                    src="{{asset('assets/imgs/theme/icons/icon-twitter.svg')}}" alt=""></a>
-                            <a href="https://www.instagram.com/trendygoods_shop/"><img
-                                    src="{{asset('assets/imgs/theme/icons/icon-instagram.svg')}}" alt=""></a>
-                            {{--                            <a href="https://www.tiktok.com/@trendygoodss"><img src="{{asset('assets/imgs/theme/icons/icon-tiktok.svg')}}" alt=""></a>--}}
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3">
-                    <h5 class="widget-title wow fadeIn animated">Yasal Bildiriler</h5>
-                    <ul class="footer-list wow fadeIn animated mb-sm-5 mb-md-0">
+                <div class="col-lg-4 col-md-6">
+                    <ul class="footer-list">
                         <li><a href="#">Gizlilik Politikası</a></li>
                         <li><a href="#">Kargo Politikası</a></li>
                         <li><a href="#">Para İade Politikası</a></li>
@@ -166,22 +256,8 @@
             </div>
         </div>
     </section>
-    <div class="container pb-20 wow fadeIn animated">
-        <div class="row">
-            <div class="col-12 mb-20">
-                <div class="footer-bottom"></div>
-            </div>
-            <div class="col-lg-6">
-                <p class="float-md-left font-sm text-muted mb-0">&copy; {{now()->year}}, <strong class="text-brand">Trendy
-                        Goods</strong></p>
-            </div>
-            <div class="col-lg-6">
-                <p class="text-lg-end text-start font-sm text-muted mb-0">
-                </p>
-            </div>
-        </div>
-    </div>
 </footer>
+
 
 <div class="whatsapp-button" id="whatsappButton">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
@@ -220,12 +296,14 @@
         $('.add-to-cart').on('click', function() {
             var button = $(this); // Store the reference to the button
             var productName = button.data('product-name');
+            var productPrice = button.data('product-price');
 
             $.ajax({
                 url: `{{route('add-to-cart',['order' => $order->id])}}`,
                 type: 'POST',
                 data: {
                     product_name: productName,
+                    product_price: productPrice,
                     _token: '{{ csrf_token() }}'
                 },
                 success: function(response) {

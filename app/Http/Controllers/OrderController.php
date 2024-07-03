@@ -30,7 +30,7 @@ class OrderController extends Controller
             'district_id' => $request->get('district_id'),
             'neighborhood_id' => $request->get('neighborhood_id'),
             'address' => $request->get('address'),
-            'products' => $request->get('products') ?? url()->previous(),
+            'products' => $request->get('products'),
             'total_price' => $request->get('total_price') ?? '0',
             'is_done' => false,
         ]);
@@ -42,17 +42,31 @@ class OrderController extends Controller
     {
         return view('upsell', ['order' => $order]);
     }
-    public function addToCart(Order $order,Request $request)
+    public function thankyou(Order $order)
+    {
+        return view('thankyou', ['order' => $order]);
+    }
+
+    public function addToCart(Order $order, Request $request)
     {
         $products = $order->products . "\n " . $request->product_name;
-        $order->update(['products' => $products]);
 
-        return response()->json(['message'=> 'Sepete eklendi']);
+        $price = floatval($request->get('product_price'));
+        $totalPrice = floatval($order->total_price) + $price;
+
+        $totalPriceStr = (string)$totalPrice;
+
+        $order->update([
+            'products' => $products,
+            'total_price' => $totalPriceStr,
+        ]);
+
+        return response()->json(['message' => 'Sepete eklendi']);
     }
     public function finishOrder(Order $order)
     {
         $order->update(['is_done' => true]);
 
-        echo  "Siparişiniz alınmıştır sizinle iletişime geçeceğiz";
+        return redirect()->route('thankyou', ['order' => $order]);
     }
 }
