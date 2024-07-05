@@ -31,6 +31,12 @@ class Order extends Model
 
     public function neighborhood()
     {
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(Neighborhood::class);
+    }
+
+    public function getWhatsappMessage()
+    {
+        return "Merhaba " . $this->name . ", \n\nSiparişinizi aldık: \n\n"
+    . $this->products . "\n\n Toplam: " . $this->total_price . "TL \n\n Siparişinizi onaylıyor musunuz?";
     }
 }

@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\City;
 use App\Models\District;
 use App\Models\Neighborhood;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -113,5 +114,11 @@ class DatabaseSeeder extends Seeder
 
            $this->command->info('Veritabanı başarıyla dolduruldu!');
        }
+
+       User::create([
+           'name' => 'Test',
+           'email' => 'asd@asd.com',
+           'password' => 'asdasdasd',
+       ]);
     }
 }

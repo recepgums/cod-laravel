@@ -34,3 +34,15 @@ Route::prefix('product')->group(function (){
 
 Route::get('city/{city}/districts',[Controllers\OrderController::class,'getDistrictsByCity'])->name('getDistrictsByCity');
 Route::get('district/{district}/neighborhoods',[Controllers\OrderController::class,'getNeighborhoodsByDistrict'])->name('getNeighborhoodsByDistrict');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

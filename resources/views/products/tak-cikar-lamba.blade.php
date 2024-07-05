@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.productapp')
 @section('title')
     Manyetik Şarjlı Tak Çıkar Led Lamba
 @endsection
@@ -650,25 +650,25 @@
 @section('content')
     <div class="gallery-container mt-5">
         <div class="main-image-container">
-            <img id="mainImage" src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="400"
+            <img id="mainImage" src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="500"
                  alt="product image" loading="lazy">
         </div>
         <div class="thumbnail-wrapper">
             <span class="arrow" onclick="scrollThumbnails(-1)">&#10094;</span>
             <div class="thumbnail-container" id="thumbnailContainer">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="400"
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/2.webp')}}" height="400"
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/2.webp')}}" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/3.webp')}}" height="400"
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/3.webp')}}" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/4.webp')}}" height="400"
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/4.webp')}}" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/5.webp')}}" height="400"
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/5.webp')}}" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
             </div>
@@ -682,7 +682,7 @@
         <h2 class="title-detail mt-4" style="margin-bottom: 0px">Mıknatıslı Tak-Çıkar Led Lamba</h2>
         <div class="product-detail-rating d-flex justify-content-between align-items-center mb-3">
             <div class="product-rate-cover text-end d-flex align-items-center">
-                <span class="font-small ml-1 text-muted"><strong>4.5</strong></span>
+                <span class="font-small ml-1 text-muted"><strong>4.8</strong></span>
                 <div class="product-rate d-inline-block mx-2">
                     <div class="product-rating" style="width:90%;"></div>
                 </div>
@@ -780,7 +780,6 @@
                 Whatsapp ile Sipariş Ver
             </a>
         </div>
-
         <div style="background-color: #e5e5e5;border-radius: 20px" class="p-3">
             <div class="col-12 text-center mb-2">
                 <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/2.webp')}}" width="300" alt="">
@@ -799,6 +798,14 @@
         </span>
         </div>
 
+        <div class="container text-center my-2">
+            <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" alt="" width="300">
+        </div>
+        <div class="product-extra-link2 mb-3">
+            <button type="button" class="btn btn-success btn-block bounce" onclick="scrollToOrderForm()">
+                Şimdi Sipariş Ver
+            </button>
+        </div>
         <h6 class="section-title style-1 my-30 text-center" id="reviews">Müşteri yorumları (242)</h6>
         <div class="comments-container">
             <div class="comment-item">
@@ -813,7 +820,7 @@
                         <h6 class="mb-1">Zeynep B.</h6>
                         <small>Ürünü gece 1 gibi sipariş ettim 13 saat sonra elime ulaştı. Çok
                             sağlam bir şekilde paketlenmişti. Çok kaliteli, çocukların
-                            ilgisini çeken bir ürün</small>
+                            ilgisini çeken bir ürün </small>
                     </div>
                 </div>
             </div>
@@ -925,9 +932,6 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
-        <div class="container text-center">
-            <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" alt="" width="300">
         </div>
         <form method="post" action="{{route('orders.store')}}" class="order-form" id="order-form">
             @csrf
@@ -1090,12 +1094,12 @@
             let totalPriceText = document.getElementById('total-price').textContent;
             let priceWithoutTL = totalPriceText.replace('TL', '').trim();
 
-            fbq('track', 'Purchase', {
+            ttq.track('CompletePayment', {
                 content_name: 'Mıknatıslı Led Lamba',
-                content_ids: ['1235'],
+                content_id: '1235',
                 content_type: 'product',
-                value: priceWithoutTL,                       // Total price
-                currency: 'TRY'                      // Currency
+                value: priceWithoutTL,
+                currency: 'TRY'
             });
         });
         function changeImage(thumbnail) {
@@ -1123,6 +1127,13 @@
                     currency: 'TRY'
                 });
 
+            ttq.track('AddToCart', {
+                content_name: 'Mıknatıslı Led Lamba',
+                content_id: '1235',
+                content_type: 'product',
+                value: priceWithoutTL,
+                currency: 'TRY'
+            });
             const orderForm = document.getElementById('order-form');
             orderForm.scrollIntoView({behavior: 'smooth'});
         }

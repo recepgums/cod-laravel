@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.productapp')
 @section('title')
     Uzay Bulut Robotu
 @endsection
