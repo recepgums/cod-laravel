@@ -653,15 +653,17 @@
             <div class="container mt-5">
                 <div class="headesr">
                     <h1>Teşekkür Ederiz!</h1>
-                    <p>Siparişiniz başarıyla alınmıştır ve en kısa sürede kargoya verilecektir.</p>
+                    <p>Siparişiniz başarıyla alınmıştır ve en kısa sürede sizinle iletişime geçip kargoya vereceğiz &#128522;</p>
                 </div>
                 <br>
                 <div class="order-details">
                     <h3>Sipariş Detayları</h3>
                     <ul>
-                        <li><strong>Sipariş Numarası:</strong> #1000{{$order->id}}</li>
-                        <li><strong>Ürün Adı:</strong> {{$order->products}}</li>
-                        <li><strong>Toplam Tutar:</strong> {{$order->total_price}}₺</li>
+                        <li><strong>Alıcı Adı: </strong> {{$order->name}}</li>
+                        <li><strong>Sipariş Numarası: </strong> #1000{{$order->id}}</li>
+                        <li><strong>Sipariş İçeriği: </strong> {{$order->products}}</li>
+                        <li><strong>Toplam Tutar: </strong> {{$order->total_price}}₺</li>
+                        <li><strong>Adres: </strong>{{$order->neighborhood?->name}} {{$order->address}} {{$order->district?->name}}/{{$order->city?->name}} </li>
                     </ul>
                 </div>
            {{--     <div class="cta-buttons">

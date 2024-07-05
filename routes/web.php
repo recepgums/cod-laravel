@@ -26,6 +26,7 @@ Route::post('order/{order}/finish-order',[Controllers\OrderController::class,'fi
 
 Route::prefix('product')->group(function (){
    Route::get('uzay-bulut-robotu',[Controllers\ProductController::class,'show']);
+   Route::get('miknatisli-lamba',[Controllers\ProductController::class,'show2']);
    Route::view('uzay-bulut-robotu-2','products.uzay-bulut-robotu-2');
    Route::view('test','products.test');
 });

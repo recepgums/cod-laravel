@@ -30,7 +30,7 @@ class OrderController extends Controller
             'district_id' => $request->get('district_id'),
             'neighborhood_id' => $request->get('neighborhood_id'),
             'address' => $request->get('address'),
-            'products' => $request->get('products'),
+            'products' => $request->get('quantity') . " X ". $request->get('products'),
             'total_price' => $request->get('total_price') ?? '0',
             'is_done' => false,
         ]);
@@ -49,7 +49,7 @@ class OrderController extends Controller
 
     public function addToCart(Order $order, Request $request)
     {
-        $products = $order->products . "\n " . $request->product_name;
+        $newProducts = $order->products . "\n 1 X " . $request->get('product_name');
 
         $price = floatval($request->get('product_price'));
         $totalPrice = floatval($order->total_price) + $price;
@@ -57,10 +57,9 @@ class OrderController extends Controller
         $totalPriceStr = (string)$totalPrice;
 
         $order->update([
-            'products' => $products,
+            'products' => $newProducts,
             'total_price' => $totalPriceStr,
         ]);
-
         return response()->json(['message' => 'Sepete eklendi']);
     }
     public function finishOrder(Order $order)

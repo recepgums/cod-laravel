@@ -17,4 +17,15 @@ class ProductController extends Controller
             'cities' => $cities,
         ]);
     }
+
+    public function show2()
+    {
+        $cities = Cache::remember('cities', 14460,function (){
+            return City::all();
+        });
+
+        return view('products.tak-cikar-lamba',[
+            'cities' => $cities,
+        ]);
+    }
 }

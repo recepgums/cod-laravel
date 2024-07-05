@@ -48,6 +48,19 @@
         }(window, document, 'ttq');
     </script>
     <!-- TikTok Pixel Code End -->
+
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1512181132850860');
+        fbq('track', 'PageView');
+    </script>
     <style>
         .contact-widget {
             font-family: Arial, sans-serif;
@@ -189,8 +202,9 @@
                                 </div>
                                 <div class="row mb-30 mx-auto">
                                     <div class="col-12">
-                                        <button class="btn w-100 btn-sm add-to-cart" data-product-name="TrendSand Kum Sanati"><i
-                                                class="fi-rs-shopping-bag mr-5"></i>Sepete Ekle
+                                        <button class="btn w-100 btn-sm add-to-cart" data-product-name="TrendSand Kum Sanati"
+                                                data-product-price="248">
+                                            <i class="fi-rs-shopping-bag mr-5"></i>Sepete Ekle
                                         </button>
                                     </div>
                                  {{--   <div class="col-6">

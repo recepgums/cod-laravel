@@ -14,7 +14,7 @@ class OrderObserver
     {
         if ($order->is_done) {
             WhatsappHelper::sendMessage(
-                $order->phone,"Merhaba ". $order->name . ", \n\n Siparişinizi aldık: \n\n"
+                $order->phone,"Merhaba ". $order->name . ", \n\nSiparişinizi aldık: \n\n"
                 . $order->products. "\n\n Toplam: " . $order->total_price . "TL \n\n Siparişinizi onaylıyor musunuz?"
             );
         }
@@ -27,7 +27,7 @@ class OrderObserver
     {
         if (!$order->getOriginal('is_done') && $order->is_done) {
             WhatsappHelper::sendMessage(
-                $order->phone,"Merhaba ". $order->name . ", \n\n Siparişinizi aldık: \n\n"
+                $order->phone,"Merhaba ". $order->name . ", \n\nSiparişinizi aldık: \n\n"
                 . $order->products. "\n\n Toplam: " . $order->total_price . "TL \n\n Siparişinizi onaylıyor musunuz?"
             );
         }

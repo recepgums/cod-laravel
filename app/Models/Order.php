@@ -18,4 +18,19 @@ class Order extends Model
         'total_price',
         'is_done',
     ];
+
+    public function district()
+    {
+        return $this->belongsTo(District::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function neighborhood()
+    {
+        return $this->belongsTo(City::class);
+    }
 }
