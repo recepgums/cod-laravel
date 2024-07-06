@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\City;
 use App\Models\District;
+use App\Models\Legacy;
 use App\Models\Neighborhood;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -112,13 +113,13 @@ class DatabaseSeeder extends Seeder
            // SQL sorgularını çalıştır
            DB::unprepared($sql);
 
+           $sqlPath = database_path('sql/legacies.sql');
+           $sql = File::get($sqlPath);
+
+           // SQL sorgularını çalıştır
+           DB::unprepared($sql);
+
            $this->command->info('Veritabanı başarıyla dolduruldu!');
        }
-
-       User::create([
-           'name' => 'Test',
-           'email' => 'asd@asd.com',
-           'password' => 'asdasdasd',
-       ]);
     }
 }

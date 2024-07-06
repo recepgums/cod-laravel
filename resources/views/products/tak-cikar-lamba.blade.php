@@ -4,6 +4,8 @@
 @endsection
 
 @section('styles')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     <style>
         .footer-list {
             list-style: none; /* Varsayılan liste stilini kaldır */
@@ -659,6 +661,9 @@
                 <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" height="500"
+                     alt="thumbnail image"
+                     onclick="changeImage(this)">
                 <img src="{{asset('assets/imgs/products/miknatisli-lamba/2.webp')}}" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
@@ -780,9 +785,9 @@
                 Whatsapp ile Sipariş Ver
             </a>
         </div>
-        <div style="background-color: #e5e5e5;border-radius: 20px" class="p-3">
+       {{-- <div style="background-color: #e5e5e5;border-radius: 20px" class="p-3">
             <div class="col-12 text-center mb-2">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/2.webp')}}" width="300" alt="">
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/3.webp')}}" width="300" alt="">
             </div>
             <small>
                 <em>Sağlam bi şekilde geldi Çok güzel aydınlatıyor uzun süre yanıyor ışimi gördü...
@@ -796,7 +801,7 @@
             <div class="product-rating" style="width:100%"></div>
         </div>
         </span>
-        </div>
+        </div>--}}
 
         <div class="container text-center my-2">
             <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" alt="" width="300">
@@ -806,7 +811,7 @@
                 Şimdi Sipariş Ver
             </button>
         </div>
-        <h6 class="section-title style-1 my-30 text-center" id="reviews">Müşteri yorumları (242)</h6>
+        <h6 class="section-title style-1 my-30 text-center" id="reviews">Tüm Değerlendirmeler (242)</h6>
         <div class="comments-container">
             <div class="comment-item">
                 <div class="comment-card">
@@ -870,7 +875,7 @@
             </div>
             <div class="comment-item">
                 <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/2.webp')}}" width="200"
+                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/7.webp')}}" width="200"
                          height="200" class="comment-img"
                          alt="Comment Image">
                     <div class="comment-content">
@@ -897,7 +902,7 @@
                 </div>
             </div>
         </div>
-        <div class="mb-2 description">
+       {{-- <div class="mb-2 description">
             <table>
                 <tbody>
                 <tr>
@@ -932,7 +937,7 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
+        </div>--}}
         <form method="post" action="{{route('orders.store')}}" class="order-form" id="order-form">
             @csrf
             <input type="hidden" name="quantity" id="quantity" value="1">
@@ -1035,7 +1040,7 @@
                 <div class="mb-3">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                        <input name="phone" required type="tel" class="form-control" placeholder="Telefon Numaranız:0535XXXXXXX">
+                        <input name="phone" required type="tel" class="form-control">
                     </div>
                 </div>
                 {{--<h2 class="note text-center text-danger my-3">
@@ -1345,5 +1350,7 @@
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
         }, false);
+        $('input[name="phone"]').mask('0 (999) 999 9999');
+
     </script>
 @endsection

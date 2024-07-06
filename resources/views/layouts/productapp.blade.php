@@ -70,7 +70,7 @@
     <section class="section-padding footer-mid">
         <div class="container pt-15 pb-20">
             <div class="row">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <div class="contact-widget">
                         <div class="logo logo-width-1 wow fadeIn animated text-center mb-2">
                             <a href="index.html"><img style="height: 50px" src="{{asset('assets/imgs/theme/logo.png')}}"
@@ -90,15 +90,34 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-6 col-md-6">
                     <ul class="footer-list">
-                        <li><a href="#">Gizlilik Politikası</a></li>
-                        <li><a href="#">Kargo Politikası</a></li>
-                        <li><a href="#">Para İade Politikası</a></li>
-                        <li><a href="#">Hizmet ve Şartlar</a></li>
-                        <li><a href="#">İletişim</a></li>
-                        <li><a href="#">Yasal Bildirim</a></li>
+                        <li><a href="#" data-key="privacy-policy">Gizlilik Politikası</a></li>
+                        <li><a href="#" data-key="shipping-policy">Kargo Politikası</a></li>
+                        <li><a href="#" data-key="refund-policy">Para İade Politikası</a></li>
+                        <li><a href="#" data-key="terms-and-conditions">Hizmet ve Şartlar</a></li>
+                        <li><a href="#" data-key="contact">İletişim</a></li>
+                        <li><a href="#" data-key="legal-notice">Yasal Bildirim</a></li>
                     </ul>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="contentModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="contentModalLabel">Modal Title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Content will be inserted here -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -145,6 +164,37 @@
     var whatsappLink = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
 
     orderBtn.setAttribute('href', whatsappLink);
+
+    const links = document.querySelectorAll('.footer-list a');
+    const modal = document.getElementById('contentModal');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalBody = modal.querySelector('.modal-body');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const key = event.target.getAttribute('data-key');
+            const url = `{{ url('legal') }}/${key}`;
+            // Fetch content from backend
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    modalTitle.textContent = data.title;
+                    modalBody.innerHTML = data.html;
+
+                    // Show the modal
+                    $('#contentModal').modal('show');
+                })
+                .catch(error => {
+                    console.error('Error fetching content:', error);
+                    modalTitle.textContent = 'Error';
+                    modalBody.innerHTML = '<p>Unable to fetch content. Please try again later.</p>';
+
+                    // Show the modal
+                    $('#contentModal').modal('show');
+                });
+        });
+    });
 </script>
 @yield('scripts')
 </body>

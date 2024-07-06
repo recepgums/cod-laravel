@@ -12,9 +12,9 @@ class OrderObserver
      */
     public function created(Order $order): void
     {
-        if ($order->is_done) {
+       /* if ($order->is_done && app()->environment('production')) {
             WhatsappHelper::sendMessage($order->phone,$order->getWhatsappMessage());
-        }
+        }*/
     }
 
     /**
@@ -22,9 +22,9 @@ class OrderObserver
      */
     public function updated(Order $order): void
     {
-        if (!$order->getOriginal('is_done') && $order->is_done) {
+       /* if (!$order->getOriginal('is_done') && $order->is_done && app()->environment('production')) {
             WhatsappHelper::sendMessage($order->phone,$order->getWhatsappMessage());
-        }
+        }*/
     }
 
     /**

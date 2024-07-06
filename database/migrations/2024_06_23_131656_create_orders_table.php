@@ -21,8 +21,10 @@ return new class extends Migration
             $table->string('address');
             $table->string('products');
             $table->string('total_price');
+            $table->string('note')->nullable();
             $table->boolean('is_done')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

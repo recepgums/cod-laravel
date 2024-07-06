@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\WhatsappHelper;
 use App\Models\District;
 use App\Models\Neighborhood;
 use App\Models\Order;
@@ -60,11 +61,13 @@ class OrderController extends Controller
             'products' => $newProducts,
             'total_price' => $totalPriceStr,
         ]);
+
         return response()->json(['message' => 'Sepete eklendi']);
     }
     public function finishOrder(Order $order)
     {
         $order->update(['is_done' => true]);
+        WhatsappHelper::sendMessage($order->whatsapp_phone,$order->getWhatsappMessage());
 
         return redirect()->route('thankyou', ['order' => $order]);
     }
