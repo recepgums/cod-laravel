@@ -27,6 +27,7 @@ Route::prefix('product')->middleware('page-cache')->group(function (){
    Route::get('uzay-bulut-robotu',[Controllers\ProductController::class,'show']);
    Route::get('miknatisli-lamba',[Controllers\ProductController::class,'show2']);
    Route::get('kum-sanati',[Controllers\ProductController::class,'showKumSanati']);
+   Route::get('paspas',[Controllers\ProductController::class,'showPaspas']);
 
    Route::view('uzay-bulut-robotu-2','products.uzay-bulut-robotu-2');
    Route::view('test','products.test');

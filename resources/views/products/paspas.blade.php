@@ -1,6 +1,6 @@
 @extends('layouts.productapp')
 @section('title')
-    Manyetik Şarjlı Tak Çıkar Led Lamba
+    Süper Su Emici Banyo Paspası
 @endsection
 
 @section('styles')
@@ -47,7 +47,7 @@
         </p>
     </div>
     <div class="container-fluid">
-        <h2 class="title-detail mt-4" style="margin-bottom: 0px">Mıknatıslı Tak-Çıkar Led Lamba</h2>
+        <h2 class="title-detail mt-4" style="margin-bottom: 0px"> Süper Su Emici Banyo Paspası</h2>
         <div class="product-detail-rating d-flex justify-content-between align-items-center mb-3">
             <div class="product-rate-cover text-end d-flex align-items-center">
                 <span class="font-small ml-1 text-muted"><strong>4.8</strong></span>
@@ -59,20 +59,19 @@
         </div>
         <div class="clearfix product-price-cover my-3">
             <div class="product-price primary-color">
-                <span class="text-brand h4">399.00₺</span>
-                <ins><span class="old-price font-md ml-3 text-muted">520.00₺</span></ins>
+                <span class="text-brand h4">299.00₺</span>
+                <ins><span class="old-price font-md ml-3 text-muted">320.00₺</span></ins>
                 <span class="save-price font-md ml-3 text-white bg-danger p-1 rounded">23% indirim</span>
             </div>
         </div>
         <div class="short-desc mb-3">
             <div class="emoji-benefits-container">
-                <p><strong>💡 Üç Farklı Işık Rengi</strong></p>
-                <p><strong>🔋 Kablosuz ve Şarj Edilebilir</strong></p>
-                <p><strong>🧲 Her yere kolayca yapışır </strong></p>
-                <p><strong>🏠 Kolay Kurulum ve Taşınabilir</strong></p>
-                <p><strong>🔌 USB ile Hızlı Şarj</strong></p>
-                <p><strong>📏 30 cm uzunluğunda</strong></p>
-                <p><strong>📦 Hızlı Teslimat ve Kapıda Ödeme</strong></p>
+                <p><strong>💙 1 Alana Bir Bedava Kampanya!</strong></p>
+                <p><strong>💳 Kapıda Ödeme İmkanı</strong></p>
+                <p><strong>💦 Süper Emici ve Lekeye Dayanıklı</strong></p>
+                <p><strong>💨 Ultra Hızlı Kuruma</strong></p>
+                <p><strong>🛹 Kaymaz Taban</strong></p>
+                <p><strong>🧽 Kolay Temizlenebilir</strong></p>
             </div>
         </div>
         <div class="section-title">
@@ -85,10 +84,10 @@
                      alt="product image">
                 <div class="details">
                     <div class="info">
-                        <span class="title">1 Adet <small class="kargo-bedava">Kargo Bedava</small></span>
-                        <span class="price">399.00TL
+                        <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small></span>
+                        <span class="price">299.00TL
                         <br>
-                        <div class="original-price">520.00TL</div>
+                        <div class="original-price">320.00TL</div>
                         </span>
                     </div>
                 </div>
@@ -99,30 +98,13 @@
                      alt="product image">
                 <div class="details">
                     <div class="info">
-                        <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small>
+                        <span class="title">4 Adet <small class="kargo-bedava">Kargo Bedava</small>
                         <br>
                     <div class="discount" style="max-width: 115px">Tanesi 299TL</div>
                         </span>
-                        <span class="price">599.00TL
+                        <span class="price">399.00TL
                         <br>
-                            <div class="original-price">1,040.00TL</div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-option d-flex align-items-center mb-3" data-quantity="3">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
-                     class="img-fluid"
-                     alt="product image">
-                <div class="details">
-                    <div class="info">
-                        <span class="title">3 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">+400TL kazançlı</div>
-                        </span>
-                        <span class="price">799.00TL
-                        <br>
-                            <div class="original-price">1,560.00TL</div>
+                            <div class="original-price">640.00TL</div>
                         </span>
                     </div>
                 </div>
@@ -138,7 +120,7 @@
             <p>tarihleri arasında siparişin kapında!</p>
         </div>
         <div class="product-extra-link2 mb-3">
-            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" onclick="scrollToOrderForm()">
+            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" {{--onclick="scrollToOrderForm()"--}}>
                 Kapıda Ödemeli Sipariş Ver
             </button>
         </div>
@@ -148,23 +130,23 @@
                 Whatsapp ile Sipariş Ver
             </a>
         </div>
-        {{-- <div style="background-color: #e5e5e5;border-radius: 20px" class="p-3">
-             <div class="col-12 text-center mb-2">
-                 <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/3.webp')}}" width="300" alt="">
-             </div>
-             <small>
-                 <em>Sağlam bi şekilde geldi Çok güzel aydınlatıyor uzun süre yanıyor ışimi gördü...
-                     Sarı ışık beyaz ışık karışık birsürü modu var teşekkür ederim 🙏🏼</em>
-             </small>
-             <br>
-             <hr>
-             <span class="text-muted">
-         Nur A*****
-         <div class="product-rate d-inline-block mb-1">
-             <div class="product-rating" style="width:100%"></div>
-         </div>
-         </span>
-         </div>--}}
+       {{-- <div style="background-color: #e5e5e5;border-radius: 20px" class="p-3">
+            <div class="col-12 text-center mb-2">
+                <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/3.webp')}}" width="300" alt="">
+            </div>
+            <small>
+                <em>Sağlam bi şekilde geldi Çok güzel aydınlatıyor uzun süre yanıyor ışimi gördü...
+                    Sarı ışık beyaz ışık karışık birsürü modu var teşekkür ederim 🙏🏼</em>
+            </small>
+            <br>
+            <hr>
+            <span class="text-muted">
+        Nur A*****
+        <div class="product-rate d-inline-block mb-1">
+            <div class="product-rating" style="width:100%"></div>
+        </div>
+        </span>
+        </div>--}}
 
         <div class="container text-center my-2">
             <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" alt="" width="300">
@@ -202,8 +184,8 @@
                             <div class="product-rating" style="width:100%"></div>
                         </div>
                         <h6 class="mb-1">***** *</h6>
-                        <small>Hafif bir ürün. Yapıştırması çok kolay. Işığı yeterli geldi bize. Şarjı 5 saat kadar gidiyor parlaklığını ayarlayabiliyorsunuz
-                            Sarı ve beyaz ışıklı fotoğraflarını ekledim. Biz memnun kaldık, teşekkür ederiz.</small>
+                        <small>1 alana 1 bedava kampanyasından aldım. Ürüne bayıldım gerçekten çok hızlı kuruyor ve dedikleri gibi kayma yapmıyor. Sürekli banyonun ıslaklığından
+                            şikayetçi birisi iseniz tavsiye ederim ayrıca abdest alırken de etraf çok su olmuyor ürün gayet başarılı </small>
                     </div>
                 </div>
             </div>
@@ -265,43 +247,6 @@
                 </div>
             </div>
         </div>
-        {{-- <div class="mb-2 description">
-             <table>
-                 <tbody>
-                 <tr>
-                     <td>💡</td>
-                     <td>
-                         <strong>Üç Farklı Işık Rengi:</strong> Beyaz, sarı ve doğal ışık seçenekleri sunar. İhtiyacınıza göre aydınlatma rengini kolayca değiştirebilirsiniz.</td>
-                 </tr>
-                 <tr>
-                     <td>🔋</td>
-                     <td>
-                         <strong>Kablosuz Kullanım Kolaylığı:</strong> Şarj edilebilir bataryası sayesinde kablo karmaşasına son verin. USB ile kolayca şarj edilebilir.</td>
-                 </tr>
-                 <tr>
-                     <td>🧲</td>
-                     <td>
-                         <strong>Manyetik Özellik:</strong> Güçlü mıknatısı sayesinde metal yüzeylere zahmetsizce tutunur.</td>
-                 </tr>
-                 <tr>
-                     <td>🏠</td>
-                     <td>
-                         <strong>Kolay Kurulum ve Taşınabilir:</strong> Hafif yapısı sayesinde istediğiniz her yere götürebilirsiniz. Delme, vidalama veya elektrik kablosu gerektirmez. Yapışkanı sayesinde istediğiniz yere hızlı ve kolayca monte edebilirsiniz.</td>
-                 </tr>
-                 <tr>
-                     <td>🔌</td>
-                     <td>
-                         <strong>USB ile Hızlı Şarj:</strong> Ürünle birlikte gelen USB kablosunu kullanarak lambayı kolayca şarj edin.</td>
-                 </tr>
-                 <tr>
-                     <td>📦</td>
-                     <td>
-                         <strong>Hızlı Teslimat ve Kapıda Ödeme:</strong> Ürünü hızlıca teslim alabilir ve kapıda ödeme kolaylığı ile satın alabilirsiniz.</td>
-                 </tr>
-                 </tbody>
-             </table>
-         </div>--}}
-
         <div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
                 <div class="modal-content">
@@ -483,14 +428,6 @@
                 value: priceWithoutTL,
                 currency: 'TRY'
             });
-            fbq('track', 'CompletePayment', {
-                content_name: 'Mıknatıslı Led Lamba', // Optional: Add product details
-                content_ids: ['1235'],
-                content_type: 'product',
-                value: priceWithoutTL,                       // Total price
-                currency: 'TRY'
-            });
-
         });
         function changeImage(thumbnail) {
             const mainImage = document.getElementById('mainImage');
@@ -509,13 +446,13 @@
             let totalPriceText = document.getElementById('total-price').textContent;
             let priceWithoutTL = totalPriceText.replace('TL', '').trim();
 
-            fbq('track', 'AddToCart', {
-                content_name:'Mıknatıslı Led Lamba', // Optional: Add product details
-                content_ids: ['1235'],
-                content_type: 'product',
-                value: priceWithoutTL,                       // Total price
-                currency: 'TRY'
-            });
+                fbq('track', 'AddToCart', {
+                    content_name: 'Uzay Bulut Robotu',  // Optional: Add product details
+                    content_ids: ['1235'],
+                    content_type: 'product',
+                    value: priceWithoutTL,                       // Total price
+                    currency: 'TRY'
+                });
 
             ttq.track('AddToCart', {
                 content_name: 'Mıknatıslı Led Lamba',
@@ -524,8 +461,8 @@
                 value: priceWithoutTL,
                 currency: 'TRY'
             });
-            /*const orderForm = document.getElementById('order-form');
-            orderForm.scrollIntoView({behavior: 'smooth'});*/
+            const orderForm = document.getElementById('order-form');
+            orderForm.scrollIntoView({behavior: 'smooth'});
         }
     </script>
     <script>
@@ -700,26 +637,26 @@
             const deliveryDatesElement = document.getElementById('delivery-dates');
             deliveryDatesElement.innerHTML = `${firstDate} - ${lastDate}`;
 
-            /*  function startCountdown(duration) {
-                  var countdown = duration, days, hours, minutes, seconds;
-                  setInterval(function () {
-                      days = Math.floor(countdown / (24 * 60 * 60));
-                      hours = Math.floor((countdown % (24 * 60 * 60)) / (60 * 60));
-                      minutes = Math.floor((countdown % (60 * 60)) / 60);
-                      seconds = Math.floor(countdown % 60);
+          /*  function startCountdown(duration) {
+                var countdown = duration, days, hours, minutes, seconds;
+                setInterval(function () {
+                    days = Math.floor(countdown / (24 * 60 * 60));
+                    hours = Math.floor((countdown % (24 * 60 * 60)) / (60 * 60));
+                    minutes = Math.floor((countdown % (60 * 60)) / 60);
+                    seconds = Math.floor(countdown % 60);
 
-                      document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-                      document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-                      document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-                      document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+                    document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+                    document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+                    document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+                    document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
 
-                      if (--countdown < 0) {
-                          countdown = duration;
-                      }
-                  }, 1000);
-              }
+                    if (--countdown < 0) {
+                        countdown = duration;
+                    }
+                }, 1000);
+            }
 
-              startCountdown(120000);*/
+            startCountdown(120000);*/
         });
 
         let lastScrollTop = 0;

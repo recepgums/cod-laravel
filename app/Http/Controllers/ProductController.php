@@ -38,4 +38,14 @@ class ProductController extends Controller
             'cities' => $cities,
         ]);
     }
+    public function showPaspas()
+    {
+        $cities = Cache::remember('cities', 14460,function (){
+            return City::all();
+        });
+
+        return view('products.paspas',[
+            'cities' => $cities,
+        ]);
+    }
 }
