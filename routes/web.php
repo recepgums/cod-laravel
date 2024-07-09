@@ -15,9 +15,7 @@ use \App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
 Route::post('order',[Controllers\OrderController::class,'store'])->name('orders.store');
 Route::get('order/{order}/upsell',[Controllers\OrderController::class,'upsell'])->name('upsell');
@@ -25,9 +23,11 @@ Route::get('order/{order}/tesekkurler',[Controllers\OrderController::class,'than
 Route::post('order/{order}/add-to-cart',[Controllers\OrderController::class,'addToCart'])->name('add-to-cart');
 Route::post('order/{order}/finish-order',[Controllers\OrderController::class,'finishOrder'])->name('finish-order');
 
-Route::prefix('product')->group(function (){
+Route::prefix('product')->middleware('page-cache')->group(function (){
    Route::get('uzay-bulut-robotu',[Controllers\ProductController::class,'show']);
    Route::get('miknatisli-lamba',[Controllers\ProductController::class,'show2']);
+   Route::get('kum-sanati',[Controllers\ProductController::class,'showKumSanati']);
+
    Route::view('uzay-bulut-robotu-2','products.uzay-bulut-robotu-2');
    Route::view('test','products.test');
 });

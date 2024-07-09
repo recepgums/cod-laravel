@@ -28,4 +28,14 @@ class ProductController extends Controller
             'cities' => $cities,
         ]);
     }
+    public function showKumSanati()
+    {
+        $cities = Cache::remember('cities', 14460,function (){
+            return City::all();
+        });
+
+        return view('layouts/only_images_app',[
+            'cities' => $cities,
+        ]);
+    }
 }

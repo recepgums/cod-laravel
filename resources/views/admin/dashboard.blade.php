@@ -196,7 +196,7 @@
         <table class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>#</th>
                 <th>Name</th>
                 <th>Phone</th>
                 <th>City ID</th>
@@ -215,7 +215,7 @@
                 <tr>
                     <form action="{{ route('admin.order.update', ['order' => $order->id]) }}" method="post">
                         @csrf
-                        <td><input type="text" name="id" value="{{ $order->id }}" class="form-control" readonly></td>
+                        <td><small>{{ $order->created_at }}</small></td>
                         <td><input type="text" name="name" value="{{ $order->name }}" class="form-control"></td>
                         <td><input type="text" name="phone" value="{{ $order->phone }}" class="form-control"></td>
                         <td>
@@ -352,7 +352,7 @@
 </script>
 
 <script>
-    document.getElementById('citySelect').addEventListener('change', function () {
+    document.getElementById('citySelect')?.addEventListener('change', function () {
         const cityId = this.value;
         const districtSelect = document.getElementById('districtSelect');
         const neighborhoodSelect = document.getElementById('neighborhoodSelect');
@@ -374,7 +374,7 @@
         }
     });
 
-    document.getElementById('districtSelect').addEventListener('change', function () {
+    document.getElementById('districtSelect')?.addEventListener('change', function () {
         const districtId = this.value;
         const neighborhoodSelect = document.getElementById('neighborhoodSelect');
 

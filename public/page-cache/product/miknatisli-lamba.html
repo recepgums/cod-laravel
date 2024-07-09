@@ -1,39 +1,96 @@
-@extends('layouts.productapp')
-@section('title')
-    Manyetik Şarjlı Tak Çıkar Led Lamba
-@endsection
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <title>    Manyetik Şarjlı Tak Çıkar Led Lamba
+</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- TikTok Pixel Code Start -->
+    <script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t;
+            var ttq = w[t] = w[t] || [];
+            ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) {
+                t[e] = function () {
+                    t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            };
+            for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+            ttq.instance = function (t) {
+                for (
+                    var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]);
+                return e
+            }, ttq.load = function (e, n) {
+                var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner;
+                ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
+                n = document.createElement("script")
+                ;n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t;
+                e = document.getElementsByTagName("script")[0];
+                e.parentNode.insertBefore(n, e)
+            };
 
-@section('styles')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+            ttq.load('COCFFQBC77U3RPP2KRIG');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
+
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1512181132850860');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-    <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
-@endsection
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/custom.css">
+</head>
+<body>
+<div class="header text-center">
+    <a href="/"><img style="height: 50px" src="http://127.0.0.1:8000/assets/imgs/theme/logo.png" alt="logo"></a>
+</div>
 
-@section('content')
     <div class="gallery-container mt-5">
         <div class="main-image-container">
-            <img id="mainImage" src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="500"
+            <img id="mainImage" src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" height="500"
                  alt="product image" loading="lazy">
         </div>
         <div class="thumbnail-wrapper">
             <span class="arrow" onclick="scrollThumbnails(-1)">&#10094;</span>
             <div class="thumbnail-container" id="thumbnailContainer">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="500"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" height="500"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/usage.gif" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/2.webp')}}" height="500"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/2.webp" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/3.webp')}}" height="500"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/3.webp" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/4.webp')}}" height="500"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/4.webp" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/5.webp')}}" height="500"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/5.webp" height="500"
                      alt="thumbnail image"
                      onclick="changeImage(this)">
             </div>
@@ -80,7 +137,7 @@
         </div>
         <div class="">
             <div class="product-option active d-flex align-items-center mb-1" data-quantity="1">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
                      class="img-fluid"
                      alt="product image">
                 <div class="details">
@@ -94,7 +151,7 @@
                 </div>
             </div>
             <div class="product-option d-flex align-items-center mb-1" data-quantity="2">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
                      class="img-fluid"
                      alt="product image">
                 <div class="details">
@@ -111,7 +168,7 @@
                 </div>
             </div>
             <div class="product-option d-flex align-items-center mb-3" data-quantity="3">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
+                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
                      class="img-fluid"
                      alt="product image">
                 <div class="details">
@@ -138,7 +195,7 @@
             <p>tarihleri arasında siparişin kapında!</p>
         </div>
         <div class="product-extra-link2 mb-3">
-            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" {{--onclick="scrollToOrderForm()"--}}>
+            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" >
                 Kapıda Ödemeli Sipariş Ver
             </button>
         </div>
@@ -148,29 +205,13 @@
                 Whatsapp ile Sipariş Ver
             </a>
         </div>
-       {{-- <div style="background-color: #e5e5e5;border-radius: 20px" class="p-3">
-            <div class="col-12 text-center mb-2">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/3.webp')}}" width="300" alt="">
-            </div>
-            <small>
-                <em>Sağlam bi şekilde geldi Çok güzel aydınlatıyor uzun süre yanıyor ışimi gördü...
-                    Sarı ışık beyaz ışık karışık birsürü modu var teşekkür ederim 🙏🏼</em>
-            </small>
-            <br>
-            <hr>
-            <span class="text-muted">
-        Nur A*****
-        <div class="product-rate d-inline-block mb-1">
-            <div class="product-rating" style="width:100%"></div>
-        </div>
-        </span>
-        </div>--}}
+       
 
         <div class="container text-center my-2">
-            <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" alt="" width="300">
+            <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/usage.gif" alt="" width="300">
         </div>
         <div class="product-extra-link2 mb-3">
-            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" {{--onclick="scrollToOrderForm()"--}}>
+            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" >
                 Şimdi Sipariş Ver
             </button>
         </div>
@@ -178,7 +219,7 @@
         <div class="comments-container">
             <div class="comment-item">
                 <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/8.webp')}}" width="200"
+                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/8.webp" width="200"
                          height="200" class="comment-img"
                          alt="Comment Image">
                     <div class="comment-content">
@@ -194,7 +235,7 @@
             </div>
             <div class="comment-item">
                 <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/1.webp')}}" width="200"
+                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/1.webp" width="200"
                          height="200" class="comment-img"
                          alt="Comment Image">
                     <div class="comment-content">
@@ -209,7 +250,7 @@
             </div>
             <div class="comment-item">
                 <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/6.webp')}}" width="200"
+                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/6.webp" width="200"
                          height="200" class="comment-img"
                          alt="Comment Image">
                     <div class="comment-content">
@@ -223,7 +264,7 @@
             </div>
             <div class="comment-item">
                 <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/9.webp')}}" width="200"
+                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/9.webp" width="200"
                          height="200" class="comment-img"
                          alt="Comment Image">
                     <div class="comment-content">
@@ -238,7 +279,7 @@
             </div>
             <div class="comment-item">
                 <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/7.webp')}}" width="200"
+                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/7.webp" width="200"
                          height="200" class="comment-img"
                          alt="Comment Image">
                     <div class="comment-content">
@@ -252,7 +293,7 @@
             </div>
             <div class="comment-item">
                 <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/3.webp')}}" width="200"
+                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/3.webp" width="200"
                          height="200" class="comment-img"
                          alt="Comment Image">
                     <div class="comment-content">
@@ -265,42 +306,7 @@
                 </div>
             </div>
         </div>
-       {{-- <div class="mb-2 description">
-            <table>
-                <tbody>
-                <tr>
-                    <td>💡</td>
-                    <td>
-                        <strong>Üç Farklı Işık Rengi:</strong> Beyaz, sarı ve doğal ışık seçenekleri sunar. İhtiyacınıza göre aydınlatma rengini kolayca değiştirebilirsiniz.</td>
-                </tr>
-                <tr>
-                    <td>🔋</td>
-                    <td>
-                        <strong>Kablosuz Kullanım Kolaylığı:</strong> Şarj edilebilir bataryası sayesinde kablo karmaşasına son verin. USB ile kolayca şarj edilebilir.</td>
-                </tr>
-                <tr>
-                    <td>🧲</td>
-                    <td>
-                        <strong>Manyetik Özellik:</strong> Güçlü mıknatısı sayesinde metal yüzeylere zahmetsizce tutunur.</td>
-                </tr>
-                <tr>
-                    <td>🏠</td>
-                    <td>
-                        <strong>Kolay Kurulum ve Taşınabilir:</strong> Hafif yapısı sayesinde istediğiniz her yere götürebilirsiniz. Delme, vidalama veya elektrik kablosu gerektirmez. Yapışkanı sayesinde istediğiniz yere hızlı ve kolayca monte edebilirsiniz.</td>
-                </tr>
-                <tr>
-                    <td>🔌</td>
-                    <td>
-                        <strong>USB ile Hızlı Şarj:</strong> Ürünle birlikte gelen USB kablosunu kullanarak lambayı kolayca şarj edin.</td>
-                </tr>
-                <tr>
-                    <td>📦</td>
-                    <td>
-                        <strong>Hızlı Teslimat ve Kapıda Ödeme:</strong> Ürünü hızlıca teslim alabilir ve kapıda ödeme kolaylığı ile satın alabilirsiniz.</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>--}}
+       
 
         <div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
@@ -312,14 +318,13 @@
                         </button>
                     </div>
                     <div class="modal-body" style="overflow: scroll">
-                        <form method="post" action="{{route('orders.store')}}" class="order-form" id="order-form">
-                            @csrf
-                            <input type="hidden" name="quantity" id="quantity" value="1">
+                        <form method="post" action="http://127.0.0.1:8000/order" class="order-form" id="order-form">
+                            <input type="hidden" name="_token" value="JS8QwFRP8aD9w8eyqNsfHKlDbrbyuFEIKyLwrDPo" autocomplete="off">                            <input type="hidden" name="quantity" id="quantity" value="1">
                             <input type="hidden" name="total_price" id="total_price" value="399">
                             <input type="hidden" name="products" value="Miknatisli Lamba">
                             <div class="">
                                 <div class="product-option active d-flex align-items-center mb-1" data-quantity="1">
-                                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
+                                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
                                          class="img-fluid"
                                          alt="product image">
                                     <div class="details">
@@ -333,7 +338,7 @@
                                     </div>
                                 </div>
                                 <div class="product-option d-flex align-items-center mb-1" data-quantity="2">
-                                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
+                                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
                                          class="img-fluid"
                                          alt="product image">
                                     <div class="details">
@@ -350,7 +355,7 @@
                                     </div>
                                 </div>
                                 <div class="product-option d-flex align-items-center mb-3" data-quantity="3">
-                                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
+                                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
                                          class="img-fluid"
                                          alt="product image">
                                     <div class="details">
@@ -416,18 +421,94 @@
                                         <input name="phone" required type="tel" class="form-control" placeholder="0__________">
                                     </div>
                                 </div>
-                                {{--<h2 class="note text-center text-danger my-3">
-                                    Teslimat adresinizi <strong class="text-danger">EKSİKSİZ GİRİN!</strong>
-                                </h2>--}}
+                                
                                 <div class="mb-3">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                                         <select required name="city_id" class="form-control" id="citySelect">
                                             <option value="">İl Seçiniz</option>
-                                            @foreach($cities as $city)
-                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
-                                            @endforeach
-                                        </select>
+                                                                                            <option value="1">Adana</option>
+                                                                                            <option value="2">Adıyaman</option>
+                                                                                            <option value="3">Afyonkarahisar</option>
+                                                                                            <option value="4">Ağrı</option>
+                                                                                            <option value="5">Amasya</option>
+                                                                                            <option value="6">Ankara</option>
+                                                                                            <option value="7">Antalya</option>
+                                                                                            <option value="8">Artvin</option>
+                                                                                            <option value="9">Aydın</option>
+                                                                                            <option value="10">Balıkesir</option>
+                                                                                            <option value="11">Bilecik</option>
+                                                                                            <option value="12">Bingöl</option>
+                                                                                            <option value="13">Bitlis</option>
+                                                                                            <option value="14">Bolu</option>
+                                                                                            <option value="15">Burdur</option>
+                                                                                            <option value="16">Bursa</option>
+                                                                                            <option value="17">Çanakkale</option>
+                                                                                            <option value="18">Çankırı</option>
+                                                                                            <option value="19">Çorum</option>
+                                                                                            <option value="20">Denizli</option>
+                                                                                            <option value="21">Diyarbakır</option>
+                                                                                            <option value="22">Edirne</option>
+                                                                                            <option value="23">Elazığ</option>
+                                                                                            <option value="24">Erzincan</option>
+                                                                                            <option value="25">Erzurum</option>
+                                                                                            <option value="26">Eskişehir</option>
+                                                                                            <option value="27">Gaziantep</option>
+                                                                                            <option value="28">Giresun</option>
+                                                                                            <option value="29">Gümüşhane</option>
+                                                                                            <option value="30">Hakkari</option>
+                                                                                            <option value="31">Hatay</option>
+                                                                                            <option value="32">Isparta</option>
+                                                                                            <option value="33">Mersin</option>
+                                                                                            <option value="34">İstanbul</option>
+                                                                                            <option value="35">İzmir</option>
+                                                                                            <option value="36">Kars</option>
+                                                                                            <option value="37">Kastamonu</option>
+                                                                                            <option value="38">Kayseri</option>
+                                                                                            <option value="39">Kırklareli</option>
+                                                                                            <option value="40">Kırşehir</option>
+                                                                                            <option value="41">Kocaeli</option>
+                                                                                            <option value="42">Konya</option>
+                                                                                            <option value="43">Kütahya</option>
+                                                                                            <option value="44">Malatya</option>
+                                                                                            <option value="45">Manisa</option>
+                                                                                            <option value="46">Kahramanmaraş</option>
+                                                                                            <option value="47">Mardin</option>
+                                                                                            <option value="48">Muğla</option>
+                                                                                            <option value="49">Muş</option>
+                                                                                            <option value="50">Nevşehir</option>
+                                                                                            <option value="51">Niğde</option>
+                                                                                            <option value="52">Ordu</option>
+                                                                                            <option value="53">Rize</option>
+                                                                                            <option value="54">Sakarya</option>
+                                                                                            <option value="55">Samsun</option>
+                                                                                            <option value="56">Siirt</option>
+                                                                                            <option value="57">Sinop</option>
+                                                                                            <option value="58">Sivas</option>
+                                                                                            <option value="59">Tekirdağ</option>
+                                                                                            <option value="60">Tokat</option>
+                                                                                            <option value="61">Trabzon</option>
+                                                                                            <option value="62">Tunceli</option>
+                                                                                            <option value="63">Şanlıurfa</option>
+                                                                                            <option value="64">Uşak</option>
+                                                                                            <option value="65">Van</option>
+                                                                                            <option value="66">Yozgat</option>
+                                                                                            <option value="67">Zonguldak</option>
+                                                                                            <option value="68">Aksaray</option>
+                                                                                            <option value="69">Bayburt</option>
+                                                                                            <option value="70">Karaman</option>
+                                                                                            <option value="71">Kırıkkale</option>
+                                                                                            <option value="72">Batman</option>
+                                                                                            <option value="73">Şırnak</option>
+                                                                                            <option value="74">Bartın</option>
+                                                                                            <option value="75">Ardahan</option>
+                                                                                            <option value="76">Iğdır</option>
+                                                                                            <option value="77">Yalova</option>
+                                                                                            <option value="78">Karabük</option>
+                                                                                            <option value="79">Kilis</option>
+                                                                                            <option value="80">Osmaniye</option>
+                                                                                            <option value="81">Düzce</option>
+                                                                                    </select>
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -468,9 +549,137 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('scripts')
+<footer class="main mt-3">
+    <section class="section-padding footer-mid">
+        <div class="container pt-15 pb-20">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact-widget">
+                        <div class="logo logo-width-1 wow fadeIn animated text-center mb-2">
+                            <a href="index.html"><img style="height: 50px" src="http://127.0.0.1:8000/assets/imgs/theme/logo.png"
+                                                      alt="logo"></a>
+                        </div>
+                        <p class="wow fadeIn animated">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <strong>Adres: </strong>Silahtarağa Caddesi no:1/20, Eyüp/İstanbul 34050
+                        </p>
+                        <p class="wow fadeIn animated">
+                            <i class="fas fa-phone-alt"></i>
+                            <strong>Telefon: </strong>0543 743 42 67
+                        </p>
+                        <p class="wow fadeIn animated">
+                            <i class="fas fa-clock"></i>
+                            <strong>Çalışma Saatleri: </strong>10:00 - 20:00, Pzt - Cmt
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <ul class="footer-list">
+                        <li><a href="#" data-key="privacy-policy">Gizlilik Politikası</a></li>
+                        <li><a href="#" data-key="shipping-policy">Kargo Politikası</a></li>
+                        <li><a href="#" data-key="refund-policy">Para İade Politikası</a></li>
+                        <li><a href="#" data-key="terms-and-conditions">Hizmet ve Şartlar</a></li>
+                        <li><a href="#" data-key="contact">İletişim</a></li>
+                        <li><a href="#" data-key="legal-notice">Yasal Bildirim</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="contentModal" tabindex="-1" role="dialog" aria-labelledby="contentModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="contentModalLabel">Modal Title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Content will be inserted here -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>
+<div class="whatsapp-button" id="whatsappButton">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+        crossorigin="anonymous" defer></script>
+<script>
+    document.getElementById('whatsappButton').addEventListener('click', function () {
+        const currentUrl = window.location.href;
+        const message = "Bu ürün hakkında daha fazla bilgi alabilir miyim\n\n" + currentUrl;
+        const phoneNumber = "905437434267";
+        fbq('track', 'Click to Whatsapp', {
+            content_name: 'Uzay Bulut Robotu',  // Name of the product
+            content_ids: ['1234'],               // Product ID
+            content_type: 'product',
+            value: 889.00,                       // Total price
+            currency: 'TRY'                      // Currency
+        });
+
+        window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+    })
+
+    var orderBtn = document.getElementById('whatsappOrderBtn');
+    var titleText = document.title;
+    var phoneNumber = '+905437434267';
+    var message = 'Merhaba, ' + titleText + ' siparişi vermek istiyorum';
+    fbq('track', 'Click to Whatsapp', {
+        content_name: 'Uzay Bulut Robotu',  // Name of the product
+        content_ids: ['1234'],               // Product ID
+        content_type: 'product',
+        value: 889.00,                       // Total price
+        currency: 'TRY'                      // Currency
+    });
+
+    var whatsappLink = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+
+    orderBtn.setAttribute('href', whatsappLink);
+
+    const links = document.querySelectorAll('.footer-list a');
+    const modal = document.getElementById('contentModal');
+    const modalTitle = modal.querySelector('.modal-title');
+    const modalBody = modal.querySelector('.modal-body');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (event) {
+            event.preventDefault();
+            const key = event.target.getAttribute('data-key');
+            const url = `http://127.0.0.1:8000/legal/${key}`;
+            // Fetch content from backend
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    modalTitle.textContent = data.title;
+                    modalBody.innerHTML = data.html;
+
+                    // Show the modal
+                    $('#contentModal').modal('show');
+                })
+                .catch(error => {
+                    console.error('Error fetching content:', error);
+                    modalTitle.textContent = 'Error';
+                    modalBody.innerHTML = '<p>Unable to fetch content. Please try again later.</p>';
+
+                    // Show the modal
+                    $('#contentModal').modal('show');
+                });
+        });
+    });
+</script>
     <script>
         document.getElementById('order-form').addEventListener('submit', function(event) {
             let totalPriceText = document.getElementById('total-price').textContent;
@@ -730,4 +939,5 @@
         $('input[name="phone"]').mask('0 (999) 999 9999');
 
     </script>
-@endsection
+</body>
+</html>
