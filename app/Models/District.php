@@ -10,6 +10,7 @@ class District extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'fest_id',
         'name',
         'city_id'
     ];

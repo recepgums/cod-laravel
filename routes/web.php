@@ -14,7 +14,13 @@ use \App\Http\Controllers;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('test',function(){
+   $helper = new \App\Helpers\FestHelper();
+   $order = \App\Models\Order::first();
 
+   $a = $helper->storeConsignment($order);
+   dd($a);
+});
 Route::view('/', 'welcome');
 
 Route::post('order',[Controllers\OrderController::class,'store'])->name('orders.store');

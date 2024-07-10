@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('districts', function (Blueprint $table) {
-            $table->id();
+            $table->string('fest_id');
             $table->string('name');
-            $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
+            $table->string('city_id');
         });
     }
 

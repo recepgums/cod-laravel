@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('neighborhoods', function (Blueprint $table) {
-            $table->id();
+            $table->string('fest_id');
             $table->string('name');
-            $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
-            $table->foreignId('district_id')->constrained('districts')->onDelete('cascade');
+            $table->string('city_id');
+            $table->string('district_id');
         });
     }
 

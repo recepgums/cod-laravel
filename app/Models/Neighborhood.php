@@ -9,6 +9,7 @@ class Neighborhood extends Model
 {
     public $timestamps = false;
     protected $fillable = [
+        'fest_id',
         'name',
         'city_id',
         'district_id',
