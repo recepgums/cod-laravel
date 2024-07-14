@@ -60,10 +60,6 @@
     @yield('styles')
 </head>
 <body>
-<div class="header text-center">
-    <a href="/"><img style="height: 50px" src="{{asset('assets/imgs/theme/logo.png')}}" alt="logo"></a>
-</div>
-
 @yield('content')
 
 <footer class="main mt-3">
@@ -135,7 +131,7 @@
         crossorigin="anonymous" defer></script>
 <script>
     document.getElementById('whatsappButton').addEventListener('click', function () {
-        const currentUrl = window.location.href;
+        const currentUrl = window.location.origin + window.location.pathname;
         const message = "Bu ürün hakkında daha fazla bilgi alabilir miyim\n\n" + currentUrl;
         const phoneNumber = "905437434267";
         fbq('track', 'Click to Whatsapp', {
@@ -147,7 +143,7 @@
         });
 
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-    })
+    });
 
     var orderBtn = document.getElementById('whatsappOrderBtn');
     var titleText = document.title;
@@ -193,6 +189,18 @@
                     // Show the modal
                     $('#contentModal').modal('show');
                 });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollingText = document.querySelector('.scrolling-text');
+
+        scrollingText.addEventListener('mouseover', () => {
+            scrollingText.style.animationPlayState = 'paused';
+        });
+
+        scrollingText.addEventListener('mouseout', () => {
+            scrollingText.style.animationPlayState = 'running';
         });
     });
 </script>

@@ -19,6 +19,7 @@ class Order extends Model
         'total_price',
         'is_done',
         'note',
+        'ref_url',
     ];
 
     public function district()

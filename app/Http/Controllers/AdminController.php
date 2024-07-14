@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Order;
 use App\Models\OrderTag;
+use App\Models\Product;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,9 @@ class AdminController extends Controller
 
     public function index()
     {
-        $orders = Order::query()->with('tags','city','district','neighborhood')->get();
+        $orders = Order::query()->with('tags','city','district','neighborhood')->orderByDesc('created_at')->paginate(2);
         $tags = Tag::all();
-        $cities = City::all();
+        $cities = City::query()->orderBy('name')->get();
 
         return view('admin.dashboard', ['orders' => $orders, 'tags' => $tags,'cities' => $cities]);
     }
@@ -66,5 +67,14 @@ class AdminController extends Controller
         $order->delete();
 
         return redirect()->back();
+    }
+
+    public function products()
+    {
+        $products = Product::query()->with(['media','comments' => function($commentsQuery){
+            $commentsQuery->orderBy('order');
+        }])->get();
+
+        return view('admin.product',['products' => $products]);
     }
 }

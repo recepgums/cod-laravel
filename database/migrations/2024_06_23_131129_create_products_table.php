@@ -13,7 +13,16 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('template')->default('image');
+            $table->decimal('price',8,2);
+            $table->decimal('old_price',8,2)->nullable();
+            $table->text('emoji_benefits')->nullable();
+            $table->longText('content')->nullable();
+            $table->text('settings')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

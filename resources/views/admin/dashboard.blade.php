@@ -17,6 +17,9 @@
 
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-messaging.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
     <style>
         .table input,
         .table select,
@@ -93,6 +96,18 @@
 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Order <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link {{ Request::is('product') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">Products</a>
+        </div>
+    </div>
+</nav>
 <div class="container-fluid">
     <div class="modal fade" id="createOrderModal" tabindex="-1" role="dialog" aria-labelledby="createOrderModalLabel"
          aria-hidden="true">
@@ -142,10 +157,6 @@
                                 <textarea type="text" class="form-control" id="address" name="address"
                                           required></textarea>
                             </div>
-
-                            <td>
-
-                            </td>
                             <div class="col-6 form-group">
                                 <label for="products">Ürünler</label>
                                 <input type="text" class="form-control" id="products" name="products" required>
@@ -193,20 +204,15 @@
         <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#createOrderModal">
             Create Order
         </button>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped" id="ordersTable">
             <thead>
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>City ID</th>
-                <th>District ID</th>
-                <th>Neighborhood ID</th>
+                <th>Name/Phone</th>
+                <th>City/District/Neighborhood</th>
                 <th>Address</th>
-                <th>Products</th>
-                <th>Total Price</th>
-                <th>Note</th>
-                <th>Etiketler</th>
+                <th>Products/Price</th>
+                <th>Note/Etiketler</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -216,8 +222,10 @@
                     <form action="{{ route('admin.order.update', ['order' => $order->id]) }}" method="post">
                         @csrf
                         <td><small>{{ $order->created_at }}</small></td>
-                        <td><input type="text" name="name" value="{{ $order->name }}" class="form-control"></td>
-                        <td><input type="text" name="phone" value="{{ $order->phone }}" class="form-control"></td>
+                        <td>
+                            <input type="text" name="name" value="{{ $order->name }}" class="form-control">
+                            <input type="text" name="phone" value="{{ $order->phone }}" class="form-control">
+                        </td>
                         <td>
                             <select class="form-control" name="city_id" id="citySelect">
                                 <option >il secin</option>
@@ -226,8 +234,6 @@
                                             @if($city->id == $order->city_id) selected @endif>{{ $city->name }}</option>
                                 @endforeach
                             </select>
-                        </td>
-                        <td>
                             <select class="form-control" name="district_id" id="districtSelect">
                                 @if($order->district_id)
                                     <option value="{{ $order?->district_id }}"
@@ -236,8 +242,6 @@
                                     <option value="">Ilce Seçiniz</option>
                                 @endif
                             </select>
-                        </td>
-                        <td>
                             <select class="form-control" name="neighborhood_id" id="neighborhoodSelect">
                                 @if($order->neighborhood_id)
                                     <option value="{{ $order?->neighborhood_id }}"
@@ -247,12 +251,17 @@
                                 @endif
                             </select>
                         </td>
-                        <td><textarea name="address" class="form-control">{{ $order->address }}</textarea></td>
-                        <td><input type="text" name="products" value="{{ $order->products }}" class="form-control"></td>
-                        <td><input type="number" name="total_price" value="{{ $order->total_price }}"
-                                   class="form-control"></td>
-                        <td><textarea name="note" class="form-control">{{ $order->note }}</textarea></td>
                         <td>
+                            <textarea name="address" class="form-control">{{ $order->address }}</textarea>
+                        </td>
+                        <td>
+                            <input type="text" name="products" value="{{ $order->products }}" class="form-control">
+                            <input type="number" name="total_price" value="{{ $order->total_price }}"
+                                   class="form-control">
+                        </td>
+                        <td>
+                            <textarea name="note" class="form-control">{{ $order->note }}</textarea>
+
                             <select class="form-control tags" name="tags[]" multiple="multiple">
                                 @foreach($tags as $tag)
                                     <option value="{{ $tag->id }}"
@@ -262,7 +271,9 @@
                         </td>
                         <td>
                             <button type="submit" class="btn btn-success btn-sm">Update</button>
+                            <br>
                             <button type="button" class="btn btn-danger btn-sm delete-order" data-order-id="{{ $order->id }}">Delete</button>
+                            <br>
                             <a href="#" id="whatsappOrderBtn-{{ $order->id }}" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
                         </td>
                     </form>
@@ -270,6 +281,9 @@
             @endforeach
             </tbody>
         </table>
+
+        {{ $orders->links('pagination::bootstrap-4') }}
+
     </div>
 </div>
 
@@ -479,5 +493,12 @@
     });
 
 </script>
+
+<script>
+    $(document).ready(function() {
+        $('#ordersTable').DataTable();
+    });
+</script>
+
 </body>
 </html>

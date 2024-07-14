@@ -149,9 +149,7 @@
     font-weight: bold;
     color: #333;
 }
-
 .header {
-    position: fixed;
     top: 0;
     width: 100%;
     background-color: white;
@@ -160,7 +158,40 @@
 }
 
 .header.hidden {
-    top: -60px; /* Üst kısım yüksekliğine göre ayarla */
+    top: -60px; /* Adjust based on header height */
+}
+
+.announcement-bar {
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+}
+
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 30s linear infinite;
+}
+
+.scrolling-text span {
+    display: inline-block;
+    padding: 0 2rem;
+    font-size: 1.2rem;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.content {
+    padding-top: 120px; /* Adjust based on header and announcement bar height */
 }
 
 .content {
@@ -181,37 +212,80 @@
     font-weight: bold;
 }
 
-.comments-container {
-    display: flex;
-    flex-wrap: wrap;
+.comment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    justify-content: space-between;
 }
+.product-rate {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.comment-grid {
+     display: flex;
+     flex-wrap: wrap;
+     margin-left: -10px; /* Adjust based on your gap */
+     width: auto;
+ }
 
 .comment-item {
-    flex: 1 1 calc(50% - 20px); /* Kartlar arasında boşluk bırakır */
-    box-sizing: border-box;
-}
-
-.comment-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    margin: 5px; /* Adjust based on your gap */
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px); /* Adjust based on the number of columns and gap */
 }
 
 .comment-img {
     width: 100%;
-    height: 200px; /* İstediğiniz yüksekliği ayarlayın */
+    height: auto;
     object-fit: cover;
+    margin-bottom: 10px;
 }
 
 .comment-content {
-    padding: 15px;
-    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+.product-rate {
+    display: flex;
+    justify-content: center;
+}
+
+.product-rating {
+    height: 20px;
+    background-color: #ffcc00;
+}
+.product-rating {
+    height: 20px;
+    background-color: #ffcc00;
+}
+
+.product-rate {
+    display: flex;
+    justify-content: center;
+}
+
+.product-rating {
+    height: 20px;
+    background-color: #ffcc00;
+}
+
+.product-rate {
+    display: flex;
+    justify-content: center;
+}
+
+.product-rating {
+    height: 20px;
+    background-color: #ffcc00;
+}
 .product-rate {
     display: flex;
     align-items: center;

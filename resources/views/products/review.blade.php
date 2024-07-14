@@ -1,41 +1,50 @@
 @extends('layouts.productapp')
 @section('title')
-    Manyetik Şarjlı Tak Çıkar Led Lamba
+    {{$product->name}}
 @endsection
 
 @section('styles')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
     <link rel="stylesheet" href="{{asset('assets/css/custom.css')}}">
 @endsection
 
 @section('content')
-    <div class="gallery-container mt-5">
+    <div class="announcement-bar">
+        <div class="scrolling-text">
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>❤️ Şeffaf Kargolu ❤️</span>
+            <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>❤️ Şeffaf Kargolu ❤️</span>
+            <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>❤️ Şeffaf Kargolu ❤️</span>
+            <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+        </div>
+    </div>
+
+    <div class="gallery-container mt-1">
+        <div class="header text-center mx-auto">
+            <a href="/"><img style="height: 50px" src="{{asset('assets/imgs/theme/logo.png')}}" alt="logo"></a>
+        </div>
+
         <div class="main-image-container">
-            <img id="mainImage" src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="500"
+            <img id="mainImage" src="{{$productImages->first()->getUrl()}}" height="500"
                  alt="product image" loading="lazy">
         </div>
         <div class="thumbnail-wrapper">
             <span class="arrow" onclick="scrollThumbnails(-1)">&#10094;</span>
             <div class="thumbnail-container" id="thumbnailContainer">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/2.webp')}}" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/3.webp')}}" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/4.webp')}}" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/5.webp')}}" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
+                @foreach($productImages as $media)
+                    <img src="{{$media->getUrl()}}" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                @endforeach
             </div>
             <span class="arrow" onclick="scrollThumbnails(1)">&#10095;</span>
         </div>
@@ -47,86 +56,63 @@
         </p>
     </div>
     <div class="container-fluid">
-        <h2 class="title-detail mt-4" style="margin-bottom: 0px">Mıknatıslı Tak-Çıkar Led Lamba</h2>
+        <h2 class="title-detail mt-4" style="margin-bottom: 0px">{{$product->name}}</h2>
         <div class="product-detail-rating d-flex justify-content-between align-items-center mb-3">
             <div class="product-rate-cover text-end d-flex align-items-center">
                 <span class="font-small ml-1 text-muted"><strong>4.8</strong></span>
                 <div class="product-rate d-inline-block mx-2">
                     <div class="product-rating" style="width:90%;"></div>
                 </div>
-                <a class="font-small ml-3 text-muted" href="#reviews">( 242 değerlendirme)</a>
+                <a class="font-small ml-3 text-muted" href="#reviews">( {{count($product->comments)}} değerlendirme)</a>
             </div>
         </div>
         <div class="clearfix product-price-cover my-3">
             <div class="product-price primary-color">
-                <span class="text-brand h4">399.00₺</span>
-                <ins><span class="old-price font-md ml-3 text-muted">520.00₺</span></ins>
-                <span class="save-price font-md ml-3 text-white bg-danger p-1 rounded">23% indirim</span>
+                <span class="text-brand h4">{{$product->price}}₺</span>
+                <ins><span class="old-price font-md ml-3 text-muted">{{$product->old_price}}₺</span></ins>
+                @if($product->old_price > $product->price)
+                    @php
+                        $discountPercentage = round(((1 - ($product->price / $product->old_price)) * 100));
+                    @endphp
+                    <span class="save-price font-md ml-3 text-white bg-danger p-1 rounded">{{ $discountPercentage }}% indirim</span>
+                @endif
             </div>
         </div>
         <div class="short-desc mb-3">
             <div class="emoji-benefits-container">
-                <p><strong>💡 Üç Farklı Işık Rengi</strong></p>
-                <p><strong>🔋 Kablosuz ve Şarj Edilebilir</strong></p>
-                <p><strong>🧲 Her yere kolayca yapışır </strong></p>
-                <p><strong>🏠 Kolay Kurulum ve Taşınabilir</strong></p>
-                <p><strong>🔌 USB ile Hızlı Şarj</strong></p>
-                <p><strong>📏 30 cm uzunluğunda</strong></p>
-                <p><strong>📦 Hızlı Teslimat ve Kapıda Ödeme</strong></p>
+             {!! $product->emoji_benefits !!}
             </div>
         </div>
         <div class="section-title">
             <span>ÇOK AL & AZ ÖDE</span>
         </div>
+
         <div class="">
-            <div class="product-option active d-flex align-items-center mb-1" data-quantity="1">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
-                     class="img-fluid"
-                     alt="product image">
-                <div class="details">
-                    <div class="info">
-                        <span class="title">1 Adet <small class="kargo-bedava">Kargo Bedava</small></span>
-                        <span class="price">399.00TL
-                        <br>
-                        <div class="original-price">520.00TL</div>
-                        </span>
+            @foreach(json_decode($product->getSettings('quantity_price')) as $quantity => $price)
+                @php
+                 $finalDiscount = (int)json_decode($product->getSettings('quantity_discount'),true)[$quantity];
+                @endphp
+                <div class="product-option @if($loop->first) active @endif d-flex align-items-center mb-1" data-quantity="{{$quantity}}">
+                    <img src="{{$productImages->first()->getUrl()}}" width="60" height="60"
+                         class="img-fluid"
+                         alt="product image">
+                    <div class="details">
+                        <div class="info">
+                            <span class="title">{{$quantity}} Adet <small class="kargo-bedava">Kargo Bedava</small>
+                            @if(!$loop->first)
+                                <div class="discount" style="max-width: 115px">Tanesi {{number_format(($price - $finalDiscount)/$quantity,0)}}TL</div>
+                            @endif
+                            </span>
+                            <span class="price">{{$price - $finalDiscount}}.00TL
+                            <br>
+                                @if ($finalDiscount)
+                                    <div class="original-price">{{($product->price * $quantity)}}.00TL</div>
+                                @endif
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="product-option d-flex align-items-center mb-1" data-quantity="2">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
-                     class="img-fluid"
-                     alt="product image">
-                <div class="details">
-                    <div class="info">
-                        <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">Tanesi 299TL</div>
-                        </span>
-                        <span class="price">599.00TL
-                        <br>
-                            <div class="original-price">1,040.00TL</div>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="product-option d-flex align-items-center mb-3" data-quantity="3">
-                <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
-                     class="img-fluid"
-                     alt="product image">
-                <div class="details">
-                    <div class="info">
-                        <span class="title">3 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">+400TL kazançlı</div>
-                        </span>
-                        <span class="price">799.00TL
-                        <br>
-                            <div class="original-price">1,560.00TL</div>
-                        </span>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
         <div class="border-top my-3"></div>
@@ -148,161 +134,23 @@
                 Whatsapp ile Sipariş Ver
             </a>
         </div>
-        {{-- <div style="background-color: #e5e5e5;border-radius: 20px" class="p-3">
-             <div class="col-12 text-center mb-2">
-                 <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/3.webp')}}" width="300" alt="">
-             </div>
-             <small>
-                 <em>Sağlam bi şekilde geldi Çok güzel aydınlatıyor uzun süre yanıyor ışimi gördü...
-                     Sarı ışık beyaz ışık karışık birsürü modu var teşekkür ederim 🙏🏼</em>
-             </small>
-             <br>
-             <hr>
-             <span class="text-muted">
-         Nur A*****
-         <div class="product-rate d-inline-block mb-1">
-             <div class="product-rating" style="width:100%"></div>
-         </div>
-         </span>
-         </div>--}}
 
-        <div class="container text-center my-2">
-            <img src="{{asset('assets/imgs/products/miknatisli-lamba/usage.gif')}}" alt="" width="300">
-        </div>
+      {!! $product->content !!}
         <div class="product-extra-link2 mb-3">
             <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" {{--onclick="scrollToOrderForm()"--}}>
                 Şimdi Sipariş Ver
             </button>
         </div>
-        <h6 class="section-title style-1 my-30 text-center" id="reviews">Tüm Değerlendirmeler (242)</h6>
-        <div class="comments-container">
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/8.webp')}}" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">Zeynep B.</h6>
-                        <small>Ürünü gece 1 gibi sipariş ettim 13 saat sonra elime ulaştı. Çok
-                            sağlam bir şekilde paketlenmişti. Çok kaliteli, çocukların
-                            ilgisini çeken bir ürün </small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/1.webp')}}" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">***** *</h6>
-                        <small>Hafif bir ürün. Yapıştırması çok kolay. Işığı yeterli geldi bize. Şarjı 5 saat kadar gidiyor parlaklığını ayarlayabiliyorsunuz
-                            Sarı ve beyaz ışıklı fotoğraflarını ekledim. Biz memnun kaldık, teşekkür ederiz.</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/6.webp')}}" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">Şevval T.</h6>
-                        <small>Çok pratik kesinlikle tavsiye ediyorum kızımın masasına aldım.Şarjı da çok iyi bir kaç kademesi var.göz yormuyor çok faydalı.kutudan usb şarj kablosu çıkıyor.Biz çok sevdik.Pişmsn olmazsınız.</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/9.webp')}}" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">Bahri K.</h6>
-                        <small>Ürün çok iyi kaliteli düşünmeden alabilirsiniz çift taraflı yapışkanı var 30cm civarı
-                            gerek ışık kalitesi gerek görüntüsü ışık modları beyaz,sarı,beyaz-sarı ve Çakar şeklinde yanıp sönen beyaz sarı ışık hepsinin aydınlatması çok güzel asla pişman etmez</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/7.webp')}}" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:90%"></div>
-                        </div>
-                        <h6 class="mb-1">Ayşegül T. Ü.</h6>
-                        <small>çok beğendim tam yerini buldu</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/reviews/3.webp')}}" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:90%"></div>
-                        </div>
-                        <h6 class="mb-1">hilal ö.</h6>
-                        <small>Mutfağa çok iyi oldu. Çok beğendik. 3 tane daha sipariş vereceğim.</small>
-                    </div>
-                </div>
+        <h6 class="section-title style-1 my-30 text-center" id="reviews">Tüm Değerlendirmeler ({{count($product->comments)}})</h6>
+        <div class="comment-grid" id="comment-container">
+            @include('partials.comments', ['comments' => $comments])
+        </div>
+
+        <div class="mt-1 mx-auto">
+                {{ $comments->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
-        {{-- <div class="mb-2 description">
-             <table>
-                 <tbody>
-                 <tr>
-                     <td>💡</td>
-                     <td>
-                         <strong>Üç Farklı Işık Rengi:</strong> Beyaz, sarı ve doğal ışık seçenekleri sunar. İhtiyacınıza göre aydınlatma rengini kolayca değiştirebilirsiniz.</td>
-                 </tr>
-                 <tr>
-                     <td>🔋</td>
-                     <td>
-                         <strong>Kablosuz Kullanım Kolaylığı:</strong> Şarj edilebilir bataryası sayesinde kablo karmaşasına son verin. USB ile kolayca şarj edilebilir.</td>
-                 </tr>
-                 <tr>
-                     <td>🧲</td>
-                     <td>
-                         <strong>Manyetik Özellik:</strong> Güçlü mıknatısı sayesinde metal yüzeylere zahmetsizce tutunur.</td>
-                 </tr>
-                 <tr>
-                     <td>🏠</td>
-                     <td>
-                         <strong>Kolay Kurulum ve Taşınabilir:</strong> Hafif yapısı sayesinde istediğiniz her yere götürebilirsiniz. Delme, vidalama veya elektrik kablosu gerektirmez. Yapışkanı sayesinde istediğiniz yere hızlı ve kolayca monte edebilirsiniz.</td>
-                 </tr>
-                 <tr>
-                     <td>🔌</td>
-                     <td>
-                         <strong>USB ile Hızlı Şarj:</strong> Ürünle birlikte gelen USB kablosunu kullanarak lambayı kolayca şarj edin.</td>
-                 </tr>
-                 <tr>
-                     <td>📦</td>
-                     <td>
-                         <strong>Hızlı Teslimat ve Kapıda Ödeme:</strong> Ürünü hızlıca teslim alabilir ve kapıda ödeme kolaylığı ile satın alabilirsiniz.</td>
-                 </tr>
-                 </tbody>
-             </table>
-         </div>--}}
-
-        <div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
+    <div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -314,62 +162,44 @@
                     <div class="modal-body" style="overflow: scroll">
                         <form method="post" action="{{route('orders.store')}}" class="order-form" id="order-form">
                             @csrf
+                            <input type="hidden" name="ref_url" id="ref_url">
                             <input type="hidden" name="quantity" id="quantity" value="1">
-                            <input type="hidden" name="total_price" id="total_price" value="399">
-                            <input type="hidden" name="products" value="Miknatisli Lamba">
+                            <input type="hidden" name="total_price" id="total_price" value="{{$product->price}}">
+                            <input type="hidden" name="products" value="{{$product->name}}">
                             <div class="">
-                                <div class="product-option active d-flex align-items-center mb-1" data-quantity="1">
-                                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
-                                         class="img-fluid"
-                                         alt="product image">
-                                    <div class="details">
-                                        <div class="info">
-                                            <span class="title">1 Adet <small class="kargo-bedava">Kargo Bedava</small></span>
-                                            <span class="price">399.00TL
-                                            <br>
-                                            <div class="original-price">520.00TL</div>
+                                @foreach(json_decode($product->getSettings('quantity_price')) as $quantity => $price)
+                                    @php
+                                        $finalDiscount = (int)json_decode($product->getSettings('quantity_discount'),true)[$quantity];
+                                    @endphp
+                                    <div
+                                        class="product-option @if($loop->first) active @endif d-flex align-items-center mb-1"
+                                        data-quantity="{{$quantity}}">
+                                        <img src="{{$productImages->first()->getUrl()}}" width="60"
+                                             height="60"
+                                             class="img-fluid"
+                                             alt="product image">
+                                        <div class="details">
+                                            <div class="info">
+                                            <span class="title">{{$quantity}} Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                            @if(!$loop->first)
+                                                    <div class="discount" style="max-width: 115px">Tanesi {{number_format(($price - $finalDiscount)/$quantity,0)}}TL</div>
+                                                @endif
                                             </span>
+                                            <span class="price">{{$price - $finalDiscount}}.00TL
+                                            <br>
+                                                @if ($finalDiscount)
+                                                    <div class="original-price">{{($product->price * $quantity)}}.00TL</div>
+                                                @endif
+                                            </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="product-option d-flex align-items-center mb-1" data-quantity="2">
-                                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
-                                         class="img-fluid"
-                                         alt="product image">
-                                    <div class="details">
-                                        <div class="info">
-                        <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">Tanesi 299TL</div>
-                        </span>
-                                            <span class="price">599.00TL
-                        <br>
-                            <div class="original-price">1,040.00TL</div>
-                        </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-option d-flex align-items-center mb-3" data-quantity="3">
-                                    <img src="{{asset('assets/imgs/products/miknatisli-lamba/1.webp')}}" width="60" height="60"
-                                         class="img-fluid"
-                                         alt="product image">
-                                    <div class="details">
-                                        <div class="info">
-                        <span class="title">3 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">+400TL kazançlı</div>
-                        </span>
-                                            <span class="price">799.00TL
-                        <br>
-                            <div class="original-price">1,560.00TL</div>
-                        </span>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+
                                 <div class="total-section mb-1">
                                     <div class="row justify-content-between">
                                         <div class="col-6 label">Ara Toplam</div>
-                                        <div class="col-6 value text-right">399.00TL</div>
+                                        <div class="col-6 value text-right">{{$product->price}}.00TL</div>
                                     </div>
                                     <div class="row justify-content-between">
                                         <div class="col-6 label">Kargo</div>
@@ -381,7 +211,7 @@
                                     </div>
                                     <div class="row justify-content-between total-row mt-2 pt-2 border-top">
                                         <div class="col-6 label">Toplam</div>
-                                        <div class="col-6 total text-right" id="total-price">399.00TL</div>
+                                        <div class="col-6 total text-right" id="total-price">{{$product->price}}.00TL</div>
                                     </div>
                                 </div>
                                 <div class="shipping-section mb-3">
@@ -455,7 +285,7 @@
                                 </div>
                                 <div class="product-extra-link2 fixed-bottom-button ">
                                     <button type="submit" class="btn btn-success btn-block complete-order">
-                                        SİPARİŞİ TAMAMLAYIN - 399.00TL
+                                        SİPARİŞİ TAMAMLAYIN - {{$product->price}}.00TL
                                     </button>
                                 </div>
                                 <div class="mt-3 text-center">
@@ -467,24 +297,31 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 
 @section('scripts')
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var grid = document.querySelector('.comment-grid');
+            var msnry = new Masonry(grid, {
+                itemSelector: '.comment-item',
+                columnWidth: '.comment-item',
+                percentPosition: true
+            });
+        });
         document.getElementById('order-form').addEventListener('submit', function(event) {
             let totalPriceText = document.getElementById('total-price').textContent;
             let priceWithoutTL = totalPriceText.replace('TL', '').trim();
 
             ttq.track('CompletePayment', {
-                content_name: 'Mıknatıslı Led Lamba',
+                content_name: '{{$product->name}}',
                 content_id: '1235',
                 content_type: 'product',
                 value: priceWithoutTL,
                 currency: 'TRY'
             });
             fbq('track', 'CompletePayment', {
-                content_name: 'Mıknatıslı Led Lamba', // Optional: Add product details
+                content_name: '{{$product->name}}', // Optional: Add product details
                 content_ids: ['1235'],
                 content_type: 'product',
                 value: priceWithoutTL,                       // Total price
@@ -510,7 +347,7 @@
             let priceWithoutTL = totalPriceText.replace('TL', '').trim();
 
             fbq('track', 'AddToCart', {
-                content_name:'Mıknatıslı Led Lamba', // Optional: Add product details
+                content_name:'{{$product->name}}', // Optional: Add product details
                 content_ids: ['1235'],
                 content_type: 'product',
                 value: priceWithoutTL,                       // Total price
@@ -518,7 +355,7 @@
             });
 
             ttq.track('AddToCart', {
-                content_name: 'Mıknatıslı Led Lamba',
+                content_name: '{{$product->name}}',
                 content_id: '1235',
                 content_type: 'product',
                 value: priceWithoutTL,
@@ -548,18 +385,8 @@
         const totalElement = document.getElementById('total-price');
         const completeOrderButton = document.querySelector('.complete-order');
 
-        // Base prices
-        const prices = {
-            '1': 399.00,
-            '2': 798.00,
-            '3': 1197.00,
-        };
-        const discounts = {
-            '1': 0,
-            '2': 199.00,
-            '3': 398.00
-        };
-
+        let prices = JSON.parse(@json($product->getSettings('quantity_price')));
+        let discounts = JSON.parse(@json($product->getSettings('quantity_discount')));
 
         let selectedProduct = '1';
         let selectedShipping = '1';
@@ -720,6 +547,10 @@
               }
 
               startCountdown(120000);*/
+
+
+            var currentUrl = window.location.href;
+            $('#ref_url').val(currentUrl);
         });
 
         let lastScrollTop = 0;

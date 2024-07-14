@@ -14,13 +14,6 @@ use \App\Http\Controllers;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('test',function(){
-   $helper = new \App\Helpers\FestHelper();
-   $order = \App\Models\Order::first();
-
-   $a = $helper->storeConsignment($order);
-   dd($a);
-});
 Route::view('/', 'welcome');
 
 Route::post('order',[Controllers\OrderController::class,'store'])->name('orders.store');
@@ -30,6 +23,7 @@ Route::post('order/{order}/add-to-cart',[Controllers\OrderController::class,'add
 Route::post('order/{order}/finish-order',[Controllers\OrderController::class,'finishOrder'])->name('finish-order');
 
 Route::prefix('product')->middleware('page-cache')->group(function (){
+   Route::get('{product}',[Controllers\ProductController::class,'show']);
    Route::get('uzay-bulut-robotu',[Controllers\ProductController::class,'show']);
    Route::get('miknatisli-lamba',[Controllers\ProductController::class,'show2']);
    Route::get('kum-sanati',[Controllers\ProductController::class,'showKumSanati']);
@@ -47,10 +41,28 @@ Route::post('save-fcm-token',[Controllers\UserDevicesController::class,'store'])
 Route::get('send-notification',[Controllers\UserDevicesController::class,'sendNotification'])->name('send.fcm_token');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
-    Route::post('admin/orders/store', [Controllers\AdminController::class, 'storeOrder'])->name('admin.order.store');
-    Route::post('admin/orders/{order}/update', [Controllers\AdminController::class, 'updateOrder'])->name('admin.order.update');
-    Route::post('/admin/orders/{order}', [Controllers\AdminController::class, 'orderDestroy'])->name('admin.order.orderDestroy');
+
+    Route::get('artisan/{command}',function($command){
+        \Illuminate\Support\Facades\Artisan::call($command);
+
+        return response()->json(['message' => 'Command executed successfully']);
+    });
+    Route::prefix('admin')->group(function () {
+        Route::get('', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+        Route::post('orders/store', [Controllers\AdminController::class, 'storeOrder'])->name('admin.order.store');
+        Route::post('orders/{order}/update', [Controllers\AdminController::class, 'updateOrder'])->name('admin.order.update');
+        Route::post('orders/{order}', [Controllers\AdminController::class, 'orderDestroy'])->name('admin.order.orderDestroy');
+
+        Route::get('product', [Controllers\AdminController::class, 'products'])->name('admin.products.index');
+        Route::post('product', [Controllers\ProductController::class, 'store'])->name('admin.products.store');
+        Route::put('product/{product}', [Controllers\ProductController::class, 'update'])->name('admin.products.update');
+        Route::put('products/media/{media}/update', [Controllers\ProductController::class, 'updateMedia'])->name('admin.products.update_media');
+        Route::delete('products/media/{media}', [Controllers\ProductController::class, 'deleteMedia'])->name('admin.products.delete_media');
+        Route::delete('products/{product}', [Controllers\ProductController::class, 'destroy'])->name('admin.product.destroy');
+
+
+        Route::post('comment/{comment}', [Controllers\ProductController::class, 'commentUpdate'])->name('comment.update');
+    });
 
     Route::post('/tags', [TagController::class, 'store'])->name('tags.store');
     Route::get('/tags', [TagController::class, 'index'])->name('tags.index');

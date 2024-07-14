@@ -12,13 +12,13 @@ class OrderController extends Controller
 {
     public function getDistrictsByCity($cityId)
     {
-        $districts = District::where('city_id', $cityId)->get();
+        $districts = District::where('city_id', $cityId)->orderBy('name')->get();
         return response()->json($districts);
     }
 
     public function getNeighborhoodsByDistrict($districtId)
     {
-        $neighborhoods = Neighborhood::where('district_id', $districtId)->get();
+        $neighborhoods = Neighborhood::where('district_id', $districtId)->orderBy('name')->get();
         return response()->json($neighborhoods);
     }
 
@@ -34,6 +34,7 @@ class OrderController extends Controller
             'products' => $request->get('quantity') . " X ". $request->get('products'),
             'total_price' => $request->get('total_price') ?? '0',
             'is_done' => false,
+            'ref_url' => $request->get('ref_url'),
         ]);
 
         return redirect()->route('upsell', ['order' => $order]);
