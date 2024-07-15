@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('products');
             $table->string('total_price');
-            $table->text('ref_url',2000);
+            $table->text('ref_url',2000)->nullable();
             $table->string('note')->nullable();
             $table->boolean('is_done')->default(false);
             $table->timestamps();

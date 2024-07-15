@@ -1,3 +1,13 @@
+<script>
+    // Pass PHP variables to JavaScript
+    var currentTime = 1721045037;
+    var countdownEndTime = 1721053122;
+</script>
+
+
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +18,7 @@
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Merriweather:wght@400;700&display=swap">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" as="style"
           onload="this.onload=null;this.rel='stylesheet'">
-    <title>    Manyetik Şarjlı Tak Çıkar Led Lamba
+    <title>    Mıknatıslı Tak-Çıkar Led Lamba
 </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
           integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -60,49 +70,107 @@
     </noscript>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
     <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/custom.css">
 </head>
 <body>
-<div class="header text-center">
-    <a href="/"><img style="height: 50px" src="http://127.0.0.1:8000/assets/imgs/theme/logo.png" alt="logo"></a>
-</div>
+    <div class="announcement-bar">
+        <div class="scrolling-text">
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>❤️ Şeffaf Kargolu ❤️</span>
+            <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>❤️ Şeffaf Kargolu ❤️</span>
+            <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
+            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
+            <span>❤️ Şeffaf Kargolu ❤️</span>
+            <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
+        </div>
+    </div>
 
-    <div class="gallery-container mt-5">
+    <div class="gallery-container mt-1">
+        <div class="header text-center mx-auto">
+            <a href="/"><img style="height: 50px" src="http://127.0.0.1:8000/assets/imgs/theme/logo.png" alt="logo"></a>
+        </div>
+
         <div class="main-image-container">
-            <img id="mainImage" src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" height="500"
+            <img id="mainImage" src="http://127.0.0.1:8000/storage/1/1.webp" height="500"
                  alt="product image" loading="lazy">
         </div>
         <div class="thumbnail-wrapper">
             <span class="arrow" onclick="scrollThumbnails(-1)">&#10094;</span>
             <div class="thumbnail-container" id="thumbnailContainer">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/usage.gif" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/2.webp" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/3.webp" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/4.webp" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/5.webp" height="500"
-                     alt="thumbnail image"
-                     onclick="changeImage(this)">
-            </div>
+                                    <img src="http://127.0.0.1:8000/storage/1/1.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/2/1_org_zoom-(1).webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/3/1_org_zoom-(2).webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/4/1_org_zoom-(3).webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/5/1_org_zoom.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/6/2.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/7/3.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/8/4.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/9/5.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/10/6.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/11/7.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/12/a.webp" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/13/amzn.jpg" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                                    <img src="http://127.0.0.1:8000/storage/14/usage.gif" height="500"
+                         alt="thumbnail image"
+                         onclick="changeImage(this)">
+                            </div>
             <span class="arrow" onclick="scrollThumbnails(1)">&#10095;</span>
         </div>
     </div>
-    <div class="text-center">
-        <div class="tag-container text-center mx-auto">ÇOK SATAN | TREND ÜRÜN</div>
-        <p>
-            <small>son 24 saatte <strong style="color: darkred">38 adet</strong> satıldı</small>
-        </p>
+   
+    <div class="flash-urunler">
+        <div class="flash-header">
+            <div class="icon">
+                <img src="http://127.0.0.1:8000/assets/imgs/flash.png" alt="Flash Icon">
+            </div>
+            <div class="title-timer">
+                <div class="title">Flaş İndirim</div>
+                <div class="timer">
+                    <span>01</span>:<span>03</span>:<span>04</span>
+                </div>
+            </div>
+            <div></div>
+            <div></div>
+            <div class="sales-info">
+                <span>36 adet satıldı</span>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
     <div class="container-fluid">
         <h2 class="title-detail mt-4" style="margin-bottom: 0px">Mıknatıslı Tak-Çıkar Led Lamba</h2>
         <div class="product-detail-rating d-flex justify-content-between align-items-center mb-3">
@@ -111,18 +179,19 @@
                 <div class="product-rate d-inline-block mx-2">
                     <div class="product-rating" style="width:90%;"></div>
                 </div>
-                <a class="font-small ml-3 text-muted" href="#reviews">( 242 değerlendirme)</a>
+                <a class="font-small ml-3 text-muted" href="#reviews">( 6 değerlendirme)</a>
             </div>
         </div>
         <div class="clearfix product-price-cover my-3">
             <div class="product-price primary-color">
                 <span class="text-brand h4">399.00₺</span>
                 <ins><span class="old-price font-md ml-3 text-muted">520.00₺</span></ins>
-                <span class="save-price font-md ml-3 text-white bg-danger p-1 rounded">23% indirim</span>
-            </div>
+                                                        <span class="save-price font-md ml-3 text-white bg-danger p-1 rounded">23% indirim</span>
+                            </div>
         </div>
         <div class="short-desc mb-3">
             <div class="emoji-benefits-container">
+             
                 <p><strong>💡 Üç Farklı Işık Rengi</strong></p>
                 <p><strong>🔋 Kablosuz ve Şarj Edilebilir</strong></p>
                 <p><strong>🧲 Her yere kolayca yapışır </strong></p>
@@ -135,56 +204,55 @@
         <div class="section-title">
             <span>ÇOK AL & AZ ÖDE</span>
         </div>
+
         <div class="">
-            <div class="product-option active d-flex align-items-center mb-1" data-quantity="1">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
-                     class="img-fluid"
-                     alt="product image">
-                <div class="details">
-                    <div class="info">
-                        <span class="title">1 Adet <small class="kargo-bedava">Kargo Bedava</small></span>
-                        <span class="price">399.00TL
-                        <br>
-                        <div class="original-price">520.00TL</div>
-                        </span>
+                                            <div class="product-option  active  d-flex align-items-center mb-1" data-quantity="1">
+                    <img src="http://127.0.0.1:8000/storage/1/1.webp" width="60" height="60"
+                         class="img-fluid"
+                         alt="product image">
+                    <div class="details">
+                        <div class="info">
+                            <span class="title">1 Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                                        </span>
+                            <span class="price">399.00TL
+                            <br>
+                                                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="product-option d-flex align-items-center mb-1" data-quantity="2">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
-                     class="img-fluid"
-                     alt="product image">
-                <div class="details">
-                    <div class="info">
-                        <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">Tanesi 299TL</div>
-                        </span>
-                        <span class="price">599.00TL
-                        <br>
-                            <div class="original-price">1,040.00TL</div>
-                        </span>
+                                            <div class="product-option  d-flex align-items-center mb-1" data-quantity="2">
+                    <img src="http://127.0.0.1:8000/storage/1/1.webp" width="60" height="60"
+                         class="img-fluid"
+                         alt="product image">
+                    <div class="details">
+                        <div class="info">
+                            <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                                            <div class="discount" style="max-width: 115px">Tanesi 300TL</div>
+                                                        </span>
+                            <span class="price">599.00TL
+                            <br>
+                                                                    <div class="original-price">798.00TL</div>
+                                                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="product-option d-flex align-items-center mb-3" data-quantity="3">
-                <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
-                     class="img-fluid"
-                     alt="product image">
-                <div class="details">
-                    <div class="info">
-                        <span class="title">3 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">+400TL kazançlı</div>
-                        </span>
-                        <span class="price">799.00TL
-                        <br>
-                            <div class="original-price">1,560.00TL</div>
-                        </span>
+                                            <div class="product-option  d-flex align-items-center mb-1" data-quantity="3">
+                    <img src="http://127.0.0.1:8000/storage/1/1.webp" width="60" height="60"
+                         class="img-fluid"
+                         alt="product image">
+                    <div class="details">
+                        <div class="info">
+                            <span class="title">3 Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                                            <div class="discount" style="max-width: 115px">Tanesi 266TL</div>
+                                                        </span>
+                            <span class="price">799.00TL
+                            <br>
+                                                                    <div class="original-price">1197.00TL</div>
+                                                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                    </div>
 
         <div class="border-top my-3"></div>
 
@@ -195,7 +263,7 @@
             <p>tarihleri arasında siparişin kapında!</p>
         </div>
         <div class="product-extra-link2 mb-3">
-            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" >
+            <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" onclick="scrollToOrderForm()">
                 Kapıda Ödemeli Sipariş Ver
             </button>
         </div>
@@ -205,176 +273,183 @@
                 Whatsapp ile Sipariş Ver
             </a>
         </div>
-       
 
-        <div class="container text-center my-2">
-            <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/usage.gif" alt="" width="300">
-        </div>
+      <div class="container text-center my-2">
+                            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/usage.gif" alt="" width="300">
+                        </div>
         <div class="product-extra-link2 mb-3">
             <button type="button" class="btn btn-success btn-block bounce"  data-toggle="modal" data-target="#fullScreenModal" >
                 Şimdi Sipariş Ver
             </button>
         </div>
-        <h6 class="section-title style-1 my-30 text-center" id="reviews">Tüm Değerlendirmeler (242)</h6>
-        <div class="comments-container">
+        <h6 class="section-title style-1 my-30 text-center" id="reviews">Tüm Değerlendirmeler (6)</h6>
+        <div class="comment-grid" id="comment-container">
             <div class="comment-item">
-                <div class="comment-card">
-                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/8.webp" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">Zeynep B.</h6>
-                        <small>Ürünü gece 1 gibi sipariş ettim 13 saat sonra elime ulaştı. Çok
-                            sağlam bir şekilde paketlenmişti. Çok kaliteli, çocukların
-                            ilgisini çeken bir ürün </small>
+        <div class="comment-card">
+            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/8.webp" class="comment-img" alt="Comment Image">
+            <div class="comment-content">
+                <div>
+                    <div class="product-rate d-inline-block mb-1">
+                        <div class="product-rating" style="width:100%"></div>
                     </div>
+                    <h6 class="mb-1">Zeynep B.</h6>
                 </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/1.webp" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">***** *</h6>
-                        <small>Hafif bir ürün. Yapıştırması çok kolay. Işığı yeterli geldi bize. Şarjı 5 saat kadar gidiyor parlaklığını ayarlayabiliyorsunuz
-                            Sarı ve beyaz ışıklı fotoğraflarını ekledim. Biz memnun kaldık, teşekkür ederiz.</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/6.webp" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">Şevval T.</h6>
-                        <small>Çok pratik kesinlikle tavsiye ediyorum kızımın masasına aldım.Şarjı da çok iyi bir kaç kademesi var.göz yormuyor çok faydalı.kutudan usb şarj kablosu çıkıyor.Biz çok sevdik.Pişmsn olmazsınız.</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/9.webp" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:100%"></div>
-                        </div>
-                        <h6 class="mb-1">Bahri K.</h6>
-                        <small>Ürün çok iyi kaliteli düşünmeden alabilirsiniz çift taraflı yapışkanı var 30cm civarı
-                            gerek ışık kalitesi gerek görüntüsü ışık modları beyaz,sarı,beyaz-sarı ve Çakar şeklinde yanıp sönen beyaz sarı ışık hepsinin aydınlatması çok güzel asla pişman etmez</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/7.webp" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:90%"></div>
-                        </div>
-                        <h6 class="mb-1">Ayşegül T. Ü.</h6>
-                        <small>çok beğendim tam yerini buldu</small>
-                    </div>
-                </div>
-            </div>
-            <div class="comment-item">
-                <div class="comment-card">
-                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/reviews/3.webp" width="200"
-                         height="200" class="comment-img"
-                         alt="Comment Image">
-                    <div class="comment-content">
-                        <div class="product-rate d-inline-block mb-1">
-                            <div class="product-rating" style="width:90%"></div>
-                        </div>
-                        <h6 class="mb-1">hilal ö.</h6>
-                        <small>Mutfağa çok iyi oldu. Çok beğendik. 3 tane daha sipariş vereceğim.</small>
-                    </div>
-                </div>
+                <small>Ürünü gece 1 gibi sipariş ettim 13 saat sonra elime ulaştı. Çok sağlam bir şekilde paketlenmişti. Çok kaliteli, çocukların ilgisini çeken bir ürün</small>
             </div>
         </div>
-       
+    </div>
+    <div class="comment-item">
+        <div class="comment-card">
+            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/1.webp" class="comment-img" alt="Comment Image">
+            <div class="comment-content">
+                <div>
+                    <div class="product-rate d-inline-block mb-1">
+                        <div class="product-rating" style="width:100%"></div>
+                    </div>
+                    <h6 class="mb-1">***** *</h6>
+                </div>
+                <small>Hafif bir ürün. Yapıştırması çok kolay. Işığı yeterli geldi bize. Şarjı 5 saat kadar gidiyor parlaklığını ayarlayabiliyorsunuz Sarı ve beyaz ışıklı fotoğraflarını ekledim. Biz memnun kaldık, teşekkür ederiz.</small>
+            </div>
+        </div>
+    </div>
+    <div class="comment-item">
+        <div class="comment-card">
+            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/6.webp" class="comment-img" alt="Comment Image">
+            <div class="comment-content">
+                <div>
+                    <div class="product-rate d-inline-block mb-1">
+                        <div class="product-rating" style="width:100%"></div>
+                    </div>
+                    <h6 class="mb-1">Şevval T.</h6>
+                </div>
+                <small>Çok pratik kesinlikle tavsiye ediyorum kızımın masasına aldım.Şarjı da çok iyi bir kaç kademesi var.göz yormuyor çok faydalı.kutudan usb şarj kablosu çıkıyor.Biz çok sevdik.Pişman olmazsınız.</small>
+            </div>
+        </div>
+    </div>
+    <div class="comment-item">
+        <div class="comment-card">
+            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/9.webp" class="comment-img" alt="Comment Image">
+            <div class="comment-content">
+                <div>
+                    <div class="product-rate d-inline-block mb-1">
+                        <div class="product-rating" style="width:100%"></div>
+                    </div>
+                    <h6 class="mb-1">Bahri K.</h6>
+                </div>
+                <small>Ürün çok iyi kaliteli düşünmeden alabilirsiniz çift taraflı yapışkanı var 30cm civarı gerek ışık kalitesi gerek görüntüsü ışık modları beyaz,sarı,beyaz-sarı ve Çakar şeklinde yanıp sönen beyaz sarı ışık hepsinin aydınlatması çok güzel asla pişman etmez</small>
+            </div>
+        </div>
+    </div>
+    <div class="comment-item">
+        <div class="comment-card">
+            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/7.webp" class="comment-img" alt="Comment Image">
+            <div class="comment-content">
+                <div>
+                    <div class="product-rate d-inline-block mb-1">
+                        <div class="product-rating" style="width:80%"></div>
+                    </div>
+                    <h6 class="mb-1">Ayşegül T. Ü.</h6>
+                </div>
+                <small>çok beğendim tam yerini buldu</small>
+            </div>
+        </div>
+    </div>
+    <div class="comment-item">
+        <div class="comment-card">
+            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/3.webp" class="comment-img" alt="Comment Image">
+            <div class="comment-content">
+                <div>
+                    <div class="product-rate d-inline-block mb-1">
+                        <div class="product-rating" style="width:80%"></div>
+                    </div>
+                    <h6 class="mb-1">hilal ö.</h6>
+                </div>
+                <small>Mutfağa çok iyi oldu. Çok beğendik. 3 tane daha sipariş vereceğim.</small>
+            </div>
+        </div>
+    </div>
+        </div>
 
-        <div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
+        <div class="mt-1 mx-auto">
+                
+            </div>
+        </div>
+    <div class="modal fade" id="fullScreenModal" tabindex="-1" role="dialog" aria-labelledby="fullScreenModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="fullScreenModalLabel">Kapıda Ödemeli Sipariş Formu</h5>
+                        <h5 class="modal-title text-center" id="fullScreenModalLabel">Sipariş Formu</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body" style="overflow: scroll">
                         <form method="post" action="http://127.0.0.1:8000/order" class="order-form" id="order-form">
-                            <input type="hidden" name="_token" value="JS8QwFRP8aD9w8eyqNsfHKlDbrbyuFEIKyLwrDPo" autocomplete="off">                            <input type="hidden" name="quantity" id="quantity" value="1">
-                            <input type="hidden" name="total_price" id="total_price" value="399">
-                            <input type="hidden" name="products" value="Miknatisli Lamba">
+                            <input type="hidden" name="_token" value="JS8QwFRP8aD9w8eyqNsfHKlDbrbyuFEIKyLwrDPo" autocomplete="off">                            <input type="hidden" name="ref_url" id="ref_url">
+                            <input type="hidden" name="quantity" id="quantity" value="1">
+                            <input type="hidden" name="total_price" id="total_price" value="399.00">
+                            <input type="hidden" name="products" value="Mıknatıslı Tak-Çıkar Led Lamba">
                             <div class="">
-                                <div class="product-option active d-flex align-items-center mb-1" data-quantity="1">
-                                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
-                                         class="img-fluid"
-                                         alt="product image">
-                                    <div class="details">
-                                        <div class="info">
-                                            <span class="title">1 Adet <small class="kargo-bedava">Kargo Bedava</small></span>
+                                                                                                        <div
+                                        class="product-option  active  d-flex align-items-center mb-1"
+                                        data-quantity="1">
+                                        <img src="http://127.0.0.1:8000/storage/1/1.webp" width="60"
+                                             height="60"
+                                             class="img-fluid"
+                                             alt="product image">
+                                        <div class="details">
+                                            <div class="info">
+                                            <span class="title">1 Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                                                                        </span>
                                             <span class="price">399.00TL
                                             <br>
-                                            <div class="original-price">520.00TL</div>
-                                            </span>
+                                                                                            </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="product-option d-flex align-items-center mb-1" data-quantity="2">
-                                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
-                                         class="img-fluid"
-                                         alt="product image">
-                                    <div class="details">
-                                        <div class="info">
-                        <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">Tanesi 299TL</div>
-                        </span>
+                                                                                                        <div
+                                        class="product-option  d-flex align-items-center mb-1"
+                                        data-quantity="2">
+                                        <img src="http://127.0.0.1:8000/storage/1/1.webp" width="60"
+                                             height="60"
+                                             class="img-fluid"
+                                             alt="product image">
+                                        <div class="details">
+                                            <div class="info">
+                                            <span class="title">2 Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                                                                                <div class="discount" style="max-width: 115px">Tanesi 300TL</div>
+                                                                                            </span>
                                             <span class="price">599.00TL
-                        <br>
-                            <div class="original-price">1,040.00TL</div>
-                        </span>
+                                            <br>
+                                                                                                    <div class="original-price">798.00TL</div>
+                                                                                            </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="product-option d-flex align-items-center mb-3" data-quantity="3">
-                                    <img src="http://127.0.0.1:8000/assets/imgs/products/miknatisli-lamba/1.webp" width="60" height="60"
-                                         class="img-fluid"
-                                         alt="product image">
-                                    <div class="details">
-                                        <div class="info">
-                        <span class="title">3 Adet <small class="kargo-bedava">Kargo Bedava</small>
-                        <br>
-                    <div class="discount" style="max-width: 115px">+400TL kazançlı</div>
-                        </span>
+                                                                                                        <div
+                                        class="product-option  d-flex align-items-center mb-1"
+                                        data-quantity="3">
+                                        <img src="http://127.0.0.1:8000/storage/1/1.webp" width="60"
+                                             height="60"
+                                             class="img-fluid"
+                                             alt="product image">
+                                        <div class="details">
+                                            <div class="info">
+                                            <span class="title">3 Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                                                                                <div class="discount" style="max-width: 115px">Tanesi 266TL</div>
+                                                                                            </span>
                                             <span class="price">799.00TL
-                        <br>
-                            <div class="original-price">1,560.00TL</div>
-                        </span>
+                                            <br>
+                                                                                                    <div class="original-price">1197.00TL</div>
+                                                                                            </span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                
                                 <div class="total-section mb-1">
                                     <div class="row justify-content-between">
                                         <div class="col-6 label">Ara Toplam</div>
-                                        <div class="col-6 value text-right">399.00TL</div>
+                                        <div class="col-6 value text-right">399.00.00TL</div>
                                     </div>
                                     <div class="row justify-content-between">
                                         <div class="col-6 label">Kargo</div>
@@ -386,7 +461,7 @@
                                     </div>
                                     <div class="row justify-content-between total-row mt-2 pt-2 border-top">
                                         <div class="col-6 label">Toplam</div>
-                                        <div class="col-6 total text-right" id="total-price">399.00TL</div>
+                                        <div class="col-6 total text-right" id="total-price">399.00.00TL</div>
                                     </div>
                                 </div>
                                 <div class="shipping-section mb-3">
@@ -427,87 +502,88 @@
                                         <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                                         <select required name="city_id" class="form-control" id="citySelect">
                                             <option value="">İl Seçiniz</option>
-                                                                                            <option value="1">Adana</option>
-                                                                                            <option value="2">Adıyaman</option>
-                                                                                            <option value="3">Afyonkarahisar</option>
-                                                                                            <option value="4">Ağrı</option>
-                                                                                            <option value="5">Amasya</option>
-                                                                                            <option value="6">Ankara</option>
-                                                                                            <option value="7">Antalya</option>
-                                                                                            <option value="8">Artvin</option>
-                                                                                            <option value="9">Aydın</option>
-                                                                                            <option value="10">Balıkesir</option>
-                                                                                            <option value="11">Bilecik</option>
-                                                                                            <option value="12">Bingöl</option>
-                                                                                            <option value="13">Bitlis</option>
-                                                                                            <option value="14">Bolu</option>
-                                                                                            <option value="15">Burdur</option>
-                                                                                            <option value="16">Bursa</option>
-                                                                                            <option value="17">Çanakkale</option>
-                                                                                            <option value="18">Çankırı</option>
-                                                                                            <option value="19">Çorum</option>
-                                                                                            <option value="20">Denizli</option>
-                                                                                            <option value="21">Diyarbakır</option>
-                                                                                            <option value="22">Edirne</option>
-                                                                                            <option value="23">Elazığ</option>
-                                                                                            <option value="24">Erzincan</option>
-                                                                                            <option value="25">Erzurum</option>
-                                                                                            <option value="26">Eskişehir</option>
-                                                                                            <option value="27">Gaziantep</option>
-                                                                                            <option value="28">Giresun</option>
-                                                                                            <option value="29">Gümüşhane</option>
-                                                                                            <option value="30">Hakkari</option>
-                                                                                            <option value="31">Hatay</option>
-                                                                                            <option value="32">Isparta</option>
-                                                                                            <option value="33">Mersin</option>
-                                                                                            <option value="34">İstanbul</option>
-                                                                                            <option value="35">İzmir</option>
-                                                                                            <option value="36">Kars</option>
-                                                                                            <option value="37">Kastamonu</option>
-                                                                                            <option value="38">Kayseri</option>
-                                                                                            <option value="39">Kırklareli</option>
-                                                                                            <option value="40">Kırşehir</option>
-                                                                                            <option value="41">Kocaeli</option>
-                                                                                            <option value="42">Konya</option>
-                                                                                            <option value="43">Kütahya</option>
-                                                                                            <option value="44">Malatya</option>
-                                                                                            <option value="45">Manisa</option>
-                                                                                            <option value="46">Kahramanmaraş</option>
-                                                                                            <option value="47">Mardin</option>
-                                                                                            <option value="48">Muğla</option>
-                                                                                            <option value="49">Muş</option>
-                                                                                            <option value="50">Nevşehir</option>
-                                                                                            <option value="51">Niğde</option>
-                                                                                            <option value="52">Ordu</option>
-                                                                                            <option value="53">Rize</option>
-                                                                                            <option value="54">Sakarya</option>
-                                                                                            <option value="55">Samsun</option>
-                                                                                            <option value="56">Siirt</option>
-                                                                                            <option value="57">Sinop</option>
-                                                                                            <option value="58">Sivas</option>
-                                                                                            <option value="59">Tekirdağ</option>
-                                                                                            <option value="60">Tokat</option>
-                                                                                            <option value="61">Trabzon</option>
-                                                                                            <option value="62">Tunceli</option>
-                                                                                            <option value="63">Şanlıurfa</option>
-                                                                                            <option value="64">Uşak</option>
-                                                                                            <option value="65">Van</option>
-                                                                                            <option value="66">Yozgat</option>
-                                                                                            <option value="67">Zonguldak</option>
-                                                                                            <option value="68">Aksaray</option>
-                                                                                            <option value="69">Bayburt</option>
-                                                                                            <option value="70">Karaman</option>
-                                                                                            <option value="71">Kırıkkale</option>
-                                                                                            <option value="72">Batman</option>
-                                                                                            <option value="73">Şırnak</option>
-                                                                                            <option value="74">Bartın</option>
-                                                                                            <option value="75">Ardahan</option>
-                                                                                            <option value="76">Iğdır</option>
-                                                                                            <option value="77">Yalova</option>
-                                                                                            <option value="78">Karabük</option>
-                                                                                            <option value="79">Kilis</option>
-                                                                                            <option value="80">Osmaniye</option>
-                                                                                            <option value="81">Düzce</option>
+                                                                                            <option value="1">ADANA</option>
+                                                                                            <option value="2">ADIYAMAN</option>
+                                                                                            <option value="3">AFYONKARAHİSAR</option>
+                                                                                            <option value="4">AĞRI</option>
+                                                                                            <option value="68">AKSARAY</option>
+                                                                                            <option value="5">AMASYA</option>
+                                                                                            <option value="6">ANKARA</option>
+                                                                                            <option value="7">ANTALYA</option>
+                                                                                            <option value="75">ARDAHAN</option>
+                                                                                            <option value="8">ARTVİN</option>
+                                                                                            <option value="9">AYDIN</option>
+                                                                                            <option value="10">BALIKESİR</option>
+                                                                                            <option value="74">BARTIN</option>
+                                                                                            <option value="72">BATMAN</option>
+                                                                                            <option value="69">BAYBURT</option>
+                                                                                            <option value="11">BİLECİK</option>
+                                                                                            <option value="12">BİNGÖL</option>
+                                                                                            <option value="13">BİTLİS</option>
+                                                                                            <option value="14">BOLU</option>
+                                                                                            <option value="15">BURDUR</option>
+                                                                                            <option value="16">BURSA</option>
+                                                                                            <option value="17">ÇANAKKALE</option>
+                                                                                            <option value="18">ÇANKIRI</option>
+                                                                                            <option value="19">ÇORUM</option>
+                                                                                            <option value="20">DENİZLİ</option>
+                                                                                            <option value="21">DİYARBAKIR</option>
+                                                                                            <option value="81">DÜZCE</option>
+                                                                                            <option value="22">EDİRNE</option>
+                                                                                            <option value="23">ELAZIĞ</option>
+                                                                                            <option value="24">ERZİNCAN</option>
+                                                                                            <option value="25">ERZURUM</option>
+                                                                                            <option value="26">ESKİŞEHİR</option>
+                                                                                            <option value="27">GAZİANTEP</option>
+                                                                                            <option value="28">GİRESUN</option>
+                                                                                            <option value="29">GÜMÜŞHANE</option>
+                                                                                            <option value="30">HAKKARİ</option>
+                                                                                            <option value="31">HATAY</option>
+                                                                                            <option value="76">IĞDIR</option>
+                                                                                            <option value="32">ISPARTA</option>
+                                                                                            <option value="34">İSTANBUL</option>
+                                                                                            <option value="35">İZMİR</option>
+                                                                                            <option value="46">KAHRAMANMARAŞ</option>
+                                                                                            <option value="78">KARABÜK</option>
+                                                                                            <option value="70">KARAMAN</option>
+                                                                                            <option value="36">KARS</option>
+                                                                                            <option value="37">KASTAMONU</option>
+                                                                                            <option value="38">KAYSERİ</option>
+                                                                                            <option value="79">KİLİS</option>
+                                                                                            <option value="71">KIRIKKALE</option>
+                                                                                            <option value="39">KIRKLARELİ</option>
+                                                                                            <option value="40">KIRŞEHİR</option>
+                                                                                            <option value="41">KOCAELİ</option>
+                                                                                            <option value="42">KONYA</option>
+                                                                                            <option value="43">KÜTAHYA</option>
+                                                                                            <option value="44">MALATYA</option>
+                                                                                            <option value="45">MANİSA</option>
+                                                                                            <option value="47">MARDİN</option>
+                                                                                            <option value="33">MERSİN</option>
+                                                                                            <option value="48">MUĞLA</option>
+                                                                                            <option value="49">MUŞ</option>
+                                                                                            <option value="50">NEVŞEHİR</option>
+                                                                                            <option value="51">NİĞDE</option>
+                                                                                            <option value="52">ORDU</option>
+                                                                                            <option value="80">OSMANİYE</option>
+                                                                                            <option value="53">RİZE</option>
+                                                                                            <option value="54">SAKARYA</option>
+                                                                                            <option value="55">SAMSUN</option>
+                                                                                            <option value="63">ŞANLIURFA</option>
+                                                                                            <option value="56">SİİRT</option>
+                                                                                            <option value="57">SİNOP</option>
+                                                                                            <option value="73">ŞIRNAK</option>
+                                                                                            <option value="58">SİVAS</option>
+                                                                                            <option value="59">TEKİRDAĞ</option>
+                                                                                            <option value="60">TOKAT</option>
+                                                                                            <option value="61">TRABZON</option>
+                                                                                            <option value="62">TUNCELİ</option>
+                                                                                            <option value="64">UŞAK</option>
+                                                                                            <option value="65">VAN</option>
+                                                                                            <option value="77">YALOVA</option>
+                                                                                            <option value="66">YOZGAT</option>
+                                                                                            <option value="82">YURTDIŞI</option>
+                                                                                            <option value="67">ZONGULDAK</option>
                                                                                     </select>
                                     </div>
                                 </div>
@@ -519,7 +595,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-1">
+
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                                         <select name="neighborhood_id" class="form-control" id="neighborhoodSelect">
@@ -528,15 +605,16 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
+                                    <small class="text-info">Örn: Silahtarağa mah örnek sok no:1/20</small>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-home"></i></span>
-                                        <input name="address" required type="text" class="form-control"
-                                               placeholder="Sokak, Kapı Numarası ve Daire">
+                                        <textarea name="address" rows="2" required type="text" class="form-control"
+                                                  placeholder="Sokak, Kapı Numarası ve Daire"></textarea>
                                     </div>
                                 </div>
                                 <div class="product-extra-link2 fixed-bottom-button ">
                                     <button type="submit" class="btn btn-success btn-block complete-order">
-                                        SİPARİŞİ TAMAMLAYIN - 399.00TL
+                                        SİPARİŞİ TAMAMLAYIN - 399.00.00TL
                                     </button>
                                 </div>
                                 <div class="mt-3 text-center">
@@ -548,7 +626,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
 <footer class="main mt-3">
     <section class="section-padding footer-mid">
@@ -619,7 +696,7 @@
         crossorigin="anonymous" defer></script>
 <script>
     document.getElementById('whatsappButton').addEventListener('click', function () {
-        const currentUrl = window.location.href;
+        const currentUrl = window.location.origin + window.location.pathname;
         const message = "Bu ürün hakkında daha fazla bilgi alabilir miyim\n\n" + currentUrl;
         const phoneNumber = "905437434267";
         fbq('track', 'Click to Whatsapp', {
@@ -631,7 +708,7 @@
         });
 
         window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
-    })
+    });
 
     var orderBtn = document.getElementById('whatsappOrderBtn');
     var titleText = document.title;
@@ -679,19 +756,47 @@
                 });
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const scrollingText = document.querySelector('.scrolling-text');
+
+        scrollingText.addEventListener('mouseover', () => {
+            scrollingText.style.animationPlayState = 'paused';
+        });
+
+        scrollingText.addEventListener('mouseout', () => {
+            scrollingText.style.animationPlayState = 'running';
+        });
+    });
 </script>
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var grid = document.querySelector('.comment-grid');
+            var msnry = new Masonry(grid, {
+                itemSelector: '.comment-item',
+                columnWidth: '.comment-item',
+                percentPosition: true
+            });
+        });
         document.getElementById('order-form').addEventListener('submit', function(event) {
             let totalPriceText = document.getElementById('total-price').textContent;
             let priceWithoutTL = totalPriceText.replace('TL', '').trim();
 
             ttq.track('CompletePayment', {
-                content_name: 'Mıknatıslı Led Lamba',
+                content_name: 'Mıknatıslı Tak-Çıkar Led Lamba',
                 content_id: '1235',
                 content_type: 'product',
                 value: priceWithoutTL,
                 currency: 'TRY'
             });
+            fbq('track', 'CompletePayment', {
+                content_name: 'Mıknatıslı Tak-Çıkar Led Lamba', // Optional: Add product details
+                content_ids: ['1235'],
+                content_type: 'product',
+                value: priceWithoutTL,                       // Total price
+                currency: 'TRY'
+            });
+
         });
         function changeImage(thumbnail) {
             const mainImage = document.getElementById('mainImage');
@@ -710,23 +815,23 @@
             let totalPriceText = document.getElementById('total-price').textContent;
             let priceWithoutTL = totalPriceText.replace('TL', '').trim();
 
-                fbq('track', 'AddToCart', {
-                    content_name: 'Uzay Bulut Robotu',  // Optional: Add product details
-                    content_ids: ['1235'],
-                    content_type: 'product',
-                    value: priceWithoutTL,                       // Total price
-                    currency: 'TRY'
-                });
+            fbq('track', 'AddToCart', {
+                content_name:'Mıknatıslı Tak-Çıkar Led Lamba', // Optional: Add product details
+                content_ids: ['1235'],
+                content_type: 'product',
+                value: priceWithoutTL,                       // Total price
+                currency: 'TRY'
+            });
 
             ttq.track('AddToCart', {
-                content_name: 'Mıknatıslı Led Lamba',
+                content_name: 'Mıknatıslı Tak-Çıkar Led Lamba',
                 content_id: '1235',
                 content_type: 'product',
                 value: priceWithoutTL,
                 currency: 'TRY'
             });
-            const orderForm = document.getElementById('order-form');
-            orderForm.scrollIntoView({behavior: 'smooth'});
+            /*const orderForm = document.getElementById('order-form');
+            orderForm.scrollIntoView({behavior: 'smooth'});*/
         }
     </script>
     <script>
@@ -749,18 +854,8 @@
         const totalElement = document.getElementById('total-price');
         const completeOrderButton = document.querySelector('.complete-order');
 
-        // Base prices
-        const prices = {
-            '1': 399.00,
-            '2': 798.00,
-            '3': 1197.00,
-        };
-        const discounts = {
-            '1': 0,
-            '2': 199.00,
-            '3': 398.00
-        };
-
+        let prices = JSON.parse("{ \u00221\u0022: 399.00, \u00222\u0022: 798.00, \u00223\u0022: 1197.00 }");
+        let discounts = JSON.parse("{ \u00221\u0022: 0, \u00222\u0022: 199.00, \u00223\u0022: 398.00 }");
 
         let selectedProduct = '1';
         let selectedShipping = '1';
@@ -832,8 +927,9 @@
                     .then(response => response.json())
                     .then(data => {
                         data.forEach(district => {
+                            console.log(district)
                             const option = document.createElement('option');
-                            option.value = district.id;
+                            option.value = district.fest_id;
                             option.textContent = district.name;
                             districtSelect.appendChild(option);
                         });
@@ -843,9 +939,9 @@
 
         document.getElementById('districtSelect').addEventListener('change', function () {
             const districtId = this.value;
+            console.log('aa',districtId)
             const neighborhoodSelect = document.getElementById('neighborhoodSelect');
-
-            neighborhoodSelect.innerHTML = '<option value="">Mahalle</option>'; // Clear previous options
+            neighborhoodSelect.innerHTML = '<option value="">Mahalle</option>';
 
             if (districtId) {
                 fetch(`/district/${districtId}/neighborhoods`)
@@ -853,7 +949,7 @@
                     .then(data => {
                         data.forEach(neighborhood => {
                             const option = document.createElement('option');
-                            option.value = neighborhood.id;
+                            option.value = neighborhood.fest_id;
                             option.textContent = neighborhood.name;
                             neighborhoodSelect.appendChild(option);
                         });
@@ -901,26 +997,30 @@
             const deliveryDatesElement = document.getElementById('delivery-dates');
             deliveryDatesElement.innerHTML = `${firstDate} - ${lastDate}`;
 
-          /*  function startCountdown(duration) {
-                var countdown = duration, days, hours, minutes, seconds;
-                setInterval(function () {
-                    days = Math.floor(countdown / (24 * 60 * 60));
-                    hours = Math.floor((countdown % (24 * 60 * 60)) / (60 * 60));
-                    minutes = Math.floor((countdown % (60 * 60)) / 60);
-                    seconds = Math.floor(countdown % 60);
+            /*  function startCountdown(duration) {
+                  var countdown = duration, days, hours, minutes, seconds;
+                  setInterval(function () {
+                      days = Math.floor(countdown / (24 * 60 * 60));
+                      hours = Math.floor((countdown % (24 * 60 * 60)) / (60 * 60));
+                      minutes = Math.floor((countdown % (60 * 60)) / 60);
+                      seconds = Math.floor(countdown % 60);
 
-                    document.getElementById('days').textContent = days < 10 ? '0' + days : days;
-                    document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
-                    document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
-                    document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+                      document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+                      document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+                      document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+                      document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
 
-                    if (--countdown < 0) {
-                        countdown = duration;
-                    }
-                }, 1000);
-            }
+                      if (--countdown < 0) {
+                          countdown = duration;
+                      }
+                  }, 1000);
+              }
 
-            startCountdown(120000);*/
+              startCountdown(120000);*/
+
+
+            var currentUrl = window.location.href;
+            $('#ref_url').val(currentUrl);
         });
 
         let lastScrollTop = 0;
@@ -938,6 +1038,35 @@
         }, false);
         $('input[name="phone"]').mask('0 (999) 999 9999');
 
+
+        function calculateRemainingTime() {
+            var now = Math.floor(Date.now() / 1000); // Current time in seconds
+            var remainingTime = countdownEndTime - now;
+
+            var hours = Math.floor(remainingTime / 3600);
+            var minutes = Math.floor((remainingTime % 3600) / 60);
+            var seconds = remainingTime % 60;
+
+            // Pad with zeros
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+            if (seconds < 10) seconds = "0" + seconds;
+
+            return { hours, minutes, seconds };
+        }
+
+        // Update the countdown timer every second
+        function updateTimer() {
+            var time = calculateRemainingTime();
+
+            document.querySelector('.timer span:nth-child(1)').textContent = time.hours;
+            document.querySelector('.timer span:nth-child(2)').textContent = time.minutes;
+            document.querySelector('.timer span:nth-child(3)').textContent = time.seconds;
+        }
+
+        // Start the timer
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call to set the timer immediately
     </script>
 </body>
 </html>

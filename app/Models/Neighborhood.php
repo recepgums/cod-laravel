@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Neighborhood extends Model
 {
     public $timestamps = false;
+    protected $primaryKey = 'fest_id';
+    public $incrementing = false;
+    protected $keyType = 'string';
     protected $fillable = [
         'fest_id',
         'name',
@@ -22,6 +25,6 @@ class Neighborhood extends Model
 
     public function district()
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(District::class, 'district_id', 'fest_id');
     }
 }

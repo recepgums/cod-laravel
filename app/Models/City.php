@@ -15,11 +15,11 @@ class City extends Model
 
     public function districts()
     {
-        return $this->hasMany(District::class);
+        return $this->hasMany(District::class, 'district_id', 'fest_id');
     }
 
     public function neighborhoods()
     {
-        return $this->hasMany(Neighborhood::class);
+        return $this->hasMany(Neighborhood::class,'neighborhood_id', 'fest_id');
     }
 }

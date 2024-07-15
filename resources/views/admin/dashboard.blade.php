@@ -209,7 +209,7 @@
             <tr>
                 <th>#</th>
                 <th>Name/Phone</th>
-                <th>City/District/Neighborhood</th>
+                <th>IL/ILCE/Mahalle</th>
                 <th>Address</th>
                 <th>Products/Price</th>
                 <th>Note/Etiketler</th>
@@ -380,7 +380,7 @@
                 .then(data => {
                     data.forEach(district => {
                         const option = document.createElement('option');
-                        option.value = district.id;
+                        option.value = district.fest_id;
                         option.textContent = district.name;
                         districtSelect.appendChild(option);
                     });
@@ -400,7 +400,7 @@
                 .then(data => {
                     data.forEach(neighborhood => {
                         const option = document.createElement('option');
-                        option.value = neighborhood.id;
+                        option.value = neighborhood.fest_id;
                         option.textContent = neighborhood.name;
                         neighborhoodSelect.appendChild(option);
                     });
@@ -421,7 +421,7 @@
                 .then(data => {
                     data.forEach(district => {
                         const option = document.createElement('option');
-                        option.value = district.id;
+                        option.value = district.fest_id;
                         option.textContent = district.name;
                         districtSelect.appendChild(option);
                     });
@@ -441,7 +441,7 @@
                 .then(data => {
                     data.forEach(neighborhood => {
                         const option = document.createElement('option');
-                        option.value = neighborhood.id;
+                        option.value = neighborhood.fest_id;
                         option.textContent = neighborhood.name;
                         neighborhoodSelect.appendChild(option);
                     });

@@ -31,6 +31,7 @@
 .cke_notification.cke_notification_warning{
     display: none;
 }
+
         .table td {
             vertical-align: middle;
         }
@@ -158,6 +159,30 @@
                             <div class="col-6 form-group">
                                 <label for="products">quantity price</label>
                                 <textarea type="text" name="quantity_price" class="form-control"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="number" class="form-control" name="price">
+                            </div>
+                            <div class="form-group">
+                                <label for="old_price">Old Price</label>
+                                <input type="number" class="form-control" name="old_price">
+                            </div>
+                            <div class="form-group">
+                                <label for="emoji_benefits">Emoji Benefits</label>
+                                <textarea class="form-control text-editor" name="emoji_benefits" rows="10"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="content">Content</label>
+                                <textarea class="form-control text-editor" name="content"  rows="10"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="images">Images</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="images" name="images[]" multiple>
+                                    <label class="custom-file-label" for="images">Choose files</label>
+                                </div>
                             </div>
                             <div class="col-6 form-group">
                                 <label for="products">quantity discount</label>

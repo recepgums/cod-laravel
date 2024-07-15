@@ -2,6 +2,27 @@
 @section('title')
     {{$product->name}}
 @endsection
+<?php
+session_start();
+
+// Set the countdown end time (e.g., 2 hours from now)
+if (!isset($_SESSION['countdown_end_time'])) {
+    $_SESSION['countdown_end_time'] = time() + (3 * 60 * 45); // 2 hours from now
+}
+
+// Get the current time and the end time
+$current_time = time();
+$countdown_end_time = $_SESSION['countdown_end_time'];
+
+?>
+
+
+<script>
+    // Pass PHP variables to JavaScript
+    var currentTime = <?= $current_time ?>;
+    var countdownEndTime = <?= $countdown_end_time ?>;
+</script>
+
 
 @section('styles')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -17,14 +38,11 @@
             <span>❤️ Şeffaf Kargolu ❤️</span>
             <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
             <span>💰 Kapıda Ödeme Seçeneği 💰</span>
-            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
             <span>❤️ Şeffaf Kargolu ❤️</span>
             <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
             <span>💰 Kapıda Ödeme Seçeneği 💰</span>
-            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
             <span>❤️ Şeffaf Kargolu ❤️</span>
             <span>⭐ Peşin Fiyatına 3 Taksit ⭐</span>
-            <span>💰 Kapıda Ödeme Seçeneği 💰</span>
         </div>
     </div>
 
@@ -49,12 +67,36 @@
             <span class="arrow" onclick="scrollThumbnails(1)">&#10095;</span>
         </div>
     </div>
-    <div class="text-center">
-        <div class="tag-container text-center mx-auto">ÇOK SATAN | TREND ÜRÜN</div>
-        <p>
+   {{-- <div class="text-center">
+        <div class="tag-container text-center mx-auto mb-2">ÇOK SATAN | TREND ÜRÜN</div>
+       --}}{{-- <p>
             <small>son 24 saatte <strong style="color: darkred">38 adet</strong> satıldı</small>
-        </p>
+        </p>--}}{{--
+    </div>--}}
+    <div class="flash-urunler">
+        <div class="flash-header">
+            <div class="icon">
+                <img src="{{asset('assets/imgs/flash.png')}}" alt="Flash Icon">
+            </div>
+            <div class="title-timer">
+                <div class="title">Flaş İndirim</div>
+                <div class="timer">
+                    <span>01</span>:<span>03</span>:<span>04</span>
+                </div>
+            </div>
+            <div></div>
+            <div></div>
+            <div class="sales-info">
+                <span>36 adet satıldı</span>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+
+
     <div class="container-fluid">
         <h2 class="title-detail mt-4" style="margin-bottom: 0px">{{$product->name}}</h2>
         <div class="product-detail-rating d-flex justify-content-between align-items-center mb-3">
@@ -154,7 +196,7 @@
             <div class="modal-dialog modal-dialog-centered modal-fullscreen" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="fullScreenModalLabel">Kapıda Ödemeli Sipariş Formu</h5>
+                        <h5 class="modal-title text-center" id="fullScreenModalLabel">Sipariş Formu</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -268,7 +310,8 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-1">
+{{--                                    <small class="text-info">Mahalleniz listede çıkmazsa adres alanına yazabilirsiniz</small>--}}
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                                         <select name="neighborhood_id" class="form-control" id="neighborhoodSelect">
@@ -277,10 +320,11 @@
                                     </div>
                                 </div>
                                 <div class="mb-3">
+                                    <small class="text-info">Örn: Silahtarağa mah örnek sok no:1/20</small>
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-home"></i></span>
-                                        <input name="address" required type="text" class="form-control"
-                                               placeholder="Sokak, Kapı Numarası ve Daire">
+                                        <textarea name="address" rows="2" required type="text" class="form-control"
+                                                  placeholder="Sokak, Kapı Numarası ve Daire"></textarea>
                                     </div>
                                 </div>
                                 <div class="product-extra-link2 fixed-bottom-button ">
@@ -458,8 +502,9 @@
                     .then(response => response.json())
                     .then(data => {
                         data.forEach(district => {
+                            console.log(district)
                             const option = document.createElement('option');
-                            option.value = district.id;
+                            option.value = district.fest_id;
                             option.textContent = district.name;
                             districtSelect.appendChild(option);
                         });
@@ -469,9 +514,9 @@
 
         document.getElementById('districtSelect').addEventListener('change', function () {
             const districtId = this.value;
+            console.log('aa',districtId)
             const neighborhoodSelect = document.getElementById('neighborhoodSelect');
-
-            neighborhoodSelect.innerHTML = '<option value="">Mahalle</option>'; // Clear previous options
+            neighborhoodSelect.innerHTML = '<option value="">Mahalle</option>';
 
             if (districtId) {
                 fetch(`/district/${districtId}/neighborhoods`)
@@ -479,7 +524,7 @@
                     .then(data => {
                         data.forEach(neighborhood => {
                             const option = document.createElement('option');
-                            option.value = neighborhood.id;
+                            option.value = neighborhood.fest_id;
                             option.textContent = neighborhood.name;
                             neighborhoodSelect.appendChild(option);
                         });
@@ -568,5 +613,34 @@
         }, false);
         $('input[name="phone"]').mask('0 (999) 999 9999');
 
+
+        function calculateRemainingTime() {
+            var now = Math.floor(Date.now() / 1000); // Current time in seconds
+            var remainingTime = countdownEndTime - now;
+
+            var hours = Math.floor(remainingTime / 3600);
+            var minutes = Math.floor((remainingTime % 3600) / 60);
+            var seconds = remainingTime % 60;
+
+            // Pad with zeros
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+            if (seconds < 10) seconds = "0" + seconds;
+
+            return { hours, minutes, seconds };
+        }
+
+        // Update the countdown timer every second
+        function updateTimer() {
+            var time = calculateRemainingTime();
+
+            document.querySelector('.timer span:nth-child(1)').textContent = time.hours;
+            document.querySelector('.timer span:nth-child(2)').textContent = time.minutes;
+            document.querySelector('.timer span:nth-child(3)').textContent = time.seconds;
+        }
+
+        // Start the timer
+        setInterval(updateTimer, 1000);
+        updateTimer(); // Initial call to set the timer immediately
     </script>
 @endsection

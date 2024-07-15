@@ -455,6 +455,7 @@ strong {
     border-radius: 10px;
     margin-bottom: 5px;
     background-color: #fff;
+    min-height: 85px;
     cursor: pointer;
     transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
@@ -740,4 +741,96 @@ strong {
     0% { transform: scale(1); }
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
+}
+
+.flash-urunler {
+    border-radius: 8px;
+    padding: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    margin: 0 auto;
+    max-width: 450px;
+    background: linear-gradient(90deg, #FF6A00 0%, #EE0979 100%);
+}
+
+.flash-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.icon img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.title-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+
+.flash-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    background: #fff;
+    color: #000;
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.timer span {
+    margin: 0 2px;
+}
+
+.sales-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10px;
+    width: 200px;
+}
+
+.sales-info span {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.progress-bar {
+    width: 70%;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    height: 5px;
+    position: relative;
+}
+
+.progress {
+    width: 50%;
+    height: 100%;
+    background: #8B56FF;
+    border-radius: 5px;
+}
+
+.more-info {
+    display: flex;
+    align-items: center;
+}
+
+.more-info i {
+    font-size: 18px;
+    color: #fff;
 }

@@ -4,8 +4,10 @@ namespace Database\Seeders;
 
 use App\Helpers\FestHelper;
 use App\Models\City;
+use App\Models\Comment;
 use App\Models\District;
 use App\Models\Neighborhood;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -40,7 +42,7 @@ class DatabaseSeeder extends Seeder
 
                         $districts = $festHelper->getDistrictByProvinceAndCountyId($city->id, $county->fest_id);
 
-                        if ($districts !=null){
+                        if ($districts != null) {
                             foreach ($districts as $id2 => $district) {
                                 Neighborhood::create([
                                     'fest_id' => $id2,
@@ -49,12 +51,12 @@ class DatabaseSeeder extends Seeder
                                     'name' => $district,
                                 ]);
                             }
-                        }else{
-                            var_dump($districts,$city->id,$county->fest_id);
+                        } else {
+                            var_dump($districts, $city->id, $county->fest_id);
                         }
                     }
-                }else{
-                    var_dump($districts,$city->id,$county,"COUNTIRES YOK@@@");
+                } else {
+                    var_dump($districts, $city->id, $county, "COUNTIRES YOK@@@");
                 }
             }
         } else {
@@ -78,6 +80,85 @@ class DatabaseSeeder extends Seeder
             'email' => 'asd@asd.com',
             'password' => 'asdasdasd',
         ]);
+
+        $product = Product::create([
+            'name' => 'Mıknatıslı Tak-Çıkar Led Lamba',
+            'slug' => 'miknatisli-lamba',
+            'price' => 399.00,
+            'old_price' => 520.00,
+            'emoji_benefits' => '
+                <p><strong>💡 Üç Farklı Işık Rengi</strong></p>
+                <p><strong>🔋 Kablosuz ve Şarj Edilebilir</strong></p>
+                <p><strong>🧲 Her yere kolayca yapışır </strong></p>
+                <p><strong>🏠 Kolay Kurulum ve Taşınabilir</strong></p>
+                <p><strong>🔌 USB ile Hızlı Şarj</strong></p>
+                <p><strong>📏 30 cm uzunluğunda</strong></p>
+                <p><strong>📦 Hızlı Teslimat ve Kapıda Ödeme</strong></p>',
+            'content' => '<div class="container text-center my-2">
+                            <img src="https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/usage.gif" alt="" width="300">
+                        </div>',
+            'template' => 'review',
+            'settings' => '{"quantity_price":"{ \"1\": 399.00, \"2\": 798.00, \"3\": 1197.00 }","quantity_discount":"{ \"1\": 0, \"2\": 199.00, \"3\": 398.00 }"}',
+        ]);
+
+        $mediaDirectory = public_path('assets/imgs/products/miknatisli-lamba/');
+        $mediaFiles = File::files($mediaDirectory);
+
+        foreach ($mediaFiles as $file) {
+            $product->addMedia($file->getPathname())
+                ->preservingOriginal()
+                ->toMediaCollection('product_images');
+        }
+
+
+        $comments = [
+            [
+                'rating' => 5,
+                'author' => 'Zeynep B.',
+                'content' => 'Ürünü gece 1 gibi sipariş ettim 13 saat sonra elime ulaştı. Çok sağlam bir şekilde paketlenmişti. Çok kaliteli, çocukların ilgisini çeken bir ürün',
+                'photo_url_1' => 'https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/8.webp'
+            ],
+            [
+                'rating' => 5,
+                'author' => '***** *',
+                'content' => 'Hafif bir ürün. Yapıştırması çok kolay. Işığı yeterli geldi bize. Şarjı 5 saat kadar gidiyor parlaklığını ayarlayabiliyorsunuz Sarı ve beyaz ışıklı fotoğraflarını ekledim. Biz memnun kaldık, teşekkür ederiz.',
+                'photo_url_1' => 'https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/1.webp'
+            ],
+            [
+                'rating' => 5,
+                'author' => 'Şevval T.',
+                'content' => 'Çok pratik kesinlikle tavsiye ediyorum kızımın masasına aldım.Şarjı da çok iyi bir kaç kademesi var.göz yormuyor çok faydalı.kutudan usb şarj kablosu çıkıyor.Biz çok sevdik.Pişman olmazsınız.',
+                'photo_url_1' => 'https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/6.webp'
+            ],
+            [
+                'rating' => 5,
+                'author' => 'Bahri K.',
+                'content' => 'Ürün çok iyi kaliteli düşünmeden alabilirsiniz çift taraflı yapışkanı var 30cm civarı gerek ışık kalitesi gerek görüntüsü ışık modları beyaz,sarı,beyaz-sarı ve Çakar şeklinde yanıp sönen beyaz sarı ışık hepsinin aydınlatması çok güzel asla pişman etmez',
+                'photo_url_1' => 'https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/9.webp'
+            ],
+            [
+                'rating' => 4.5,
+                'author' => 'Ayşegül T. Ü.',
+                'content' => 'çok beğendim tam yerini buldu',
+                'photo_url_1' => 'https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/7.webp'
+            ],
+            [
+                'rating' => 4.5,
+                'author' => 'hilal ö.',
+                'content' => 'Mutfağa çok iyi oldu. Çok beğendik. 3 tane daha sipariş vereceğim.',
+                'photo_url_1' => 'https://trendygoods.com.tr/assets/imgs/products/miknatisli-lamba/reviews/3.webp'
+            ]
+        ];
+
+        foreach ($comments as $comment) {
+            Comment::create([
+                'product_id' => $product->id,
+                'rating' => $comment['rating'],
+                'author' => $comment['author'],
+                'content' => $comment['content'],
+                'photo_url_1' => $comment['photo_url_1']
+            ]);
+        }
     }
 }
 /*

@@ -22,9 +22,10 @@ class Order extends Model
         'ref_url',
     ];
 
+
     public function district()
     {
-        return $this->belongsTo(District::class);
+        return $this->belongsTo(District::class, 'district_id', 'fest_id');
     }
 
     public function city()
@@ -34,7 +35,7 @@ class Order extends Model
 
     public function neighborhood()
     {
-        return $this->belongsTo(Neighborhood::class);
+        return $this->belongsTo(Neighborhood::class,'neighborhood_id', 'fest_id');
     }
 
     public function tags()
