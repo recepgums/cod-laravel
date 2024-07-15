@@ -166,6 +166,7 @@
     overflow: hidden;
     background-color: #000;
     color: #fff;
+    padding: 10px;
 }
 
 .scrolling-text {
@@ -223,11 +224,11 @@
     justify-content: center;
 }
 .comment-grid {
-     display: flex;
-     flex-wrap: wrap;
-     margin-left: -10px; /* Adjust based on your gap */
-     width: auto;
- }
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px; /* Adjust based on your gap */
+    width: auto;
+}
 
 .comment-item {
     background-color: #fff;
@@ -557,9 +558,7 @@ strong {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
     max-width: 100%;
-    padding: 10px;
 }
 
 .main-image-container {
@@ -825,6 +824,7 @@ strong {
     border-radius: 5px;
 }
 
+
 .more-info {
     display: flex;
     align-items: center;
@@ -833,4 +833,29 @@ strong {
 .more-info i {
     font-size: 18px;
     color: #fff;
+}
+
+/* Tablonun taşmasını önlemek ve padding eklemek için genel stil */
+.table-container {
+    padding: 10px; /* Çevresine boşluk ekler */
+}
+
+.styled-table {
+    width: 100%; /* Tablonun genişliğini kapsar */
+    border-collapse: collapse; /* Hücre kenarlarını birleştirir */
+}
+
+.styled-table td {
+    padding: 10px; /* Hücrelere iç boşluk ekler */
+    border: 1px solid #ddd; /* Hücre kenarları için ince bir çerçeve */
+    vertical-align: middle; /* İçeriği hücrelerin ortasına hizalar (y ekseni) */
+    text-align: center; /* İçeriği hücrelerin ortasına hizalar (x ekseni) */
+    height: 200px; /* Hücrelerin yüksekliğini artırır */
+}
+
+.smaller-text {
+    font-size: 12px; /* Yazı boyutunu küçültün */
+    line-height: 1.2; /* Satır yüksekliğini ayarlayarak okunabilirliği artırın */
+    font-weight: normal; /* Yazı kalınlığını normal yapın */
+    margin-top: 0.5em; /* Üst boşluk ekleyin */
 }

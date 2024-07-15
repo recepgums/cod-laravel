@@ -34,13 +34,13 @@ class Product extends Model implements HasMedia
     {
         return $this->hasMany(Comment::class);
     }
-    public function registerMediaConversions(Media $media = null): void
+   /* public function registerMediaConversions(Media $media = null): void
     {
         $this
             ->addMediaConversion('preview')
             ->fit(Manipulations::FIT_CROP, 300, 300)
             ->nonQueued();
-    }
+    }*/
 
     public function updateSetting($key,$value)
     {

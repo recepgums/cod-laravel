@@ -19,7 +19,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $orders = Order::query()->with('tags','city','district','neighborhood')->orderByDesc('created_at')->paginate(2);
+        $orders = Order::query()->with('tags','city','district','neighborhood')->orderByDesc('created_at')->paginate(20);
         $tags = Tag::all();
         $cities = City::query()->orderBy('name')->get();
 

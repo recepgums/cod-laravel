@@ -43,9 +43,35 @@ Route::get('send-notification',[Controllers\UserDevicesController::class,'sendNo
 Route::middleware(['auth'])->group(function () {
 
     Route::get('artisan/{command}',function($command){
-        \Illuminate\Support\Facades\Artisan::call($command);
+        $target = '/home/trendygo/public_html/storage/app/public';
+        $link = '/home/trendygo/public_html/public/storage';
 
-        return response()->json(['message' => 'Command executed successfully']);
+// Mevcut sembolik bağlantıyı veya dizini sil
+        if (file_exists($link)) {
+            // Eğer sembolik bağlantı ise
+            if (is_link($link)) {
+                unlink($link);
+            }
+            // Eğer bir dizin ise
+            elseif (is_dir($link)) {
+                rmdir($link);
+            }
+        }
+
+// Yeni sembolik bağlantıyı oluştur
+        if (symlink($target, $link)) {
+            echo 'Sembolik bağlantı başarıyla oluşturuldu.';
+        } else {
+            echo 'Sembolik bağlantı oluşturulamadı.';
+        }
+        /*
+        try {
+            \Illuminate\Support\Facades\Artisan::call($command);
+        }catch (Exception $exception){
+            dd($exception);
+        }
+
+        return response()->json(['message' => 'Command executed successfully']);*/
     });
     Route::prefix('admin')->group(function () {
         Route::get('', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');

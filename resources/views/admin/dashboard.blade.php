@@ -103,7 +103,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Order <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link {{ Request::is('/admin') ? 'active' : '' }}" href="{{ url('/admin') }}">Order <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link {{ Request::is('product') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">Products</a>
         </div>
     </div>
@@ -481,7 +481,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         var orders = @json($orders); // Assuming you pass the orders data from Laravel to JavaScript
 
-        orders.forEach(function(order) {
+        orders.data.forEach(function(order) {
             var orderBtn = document.getElementById('whatsappOrderBtn-' + order.id);
             var phoneNumber = order.phone.startsWith('9') ? order.phone : '9' + order.phone;
             var message = 'Merhaba ' + order.name + ',\n\n' + order.total_price + ' tutarındaki ' + order.products + ' siparişinizi aldık. Siparişinizi onaylıyor musunuz?';

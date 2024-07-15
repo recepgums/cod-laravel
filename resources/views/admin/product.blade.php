@@ -118,10 +118,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Order <span
-                    class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link {{ Request::is('product') ? 'active' : '' }}"
-               href="{{ route('admin.products.index') }}">Products</a>
+            <a class="nav-item nav-link {{ Request::is('/admin') ? 'active' : '' }}" href="{{ url('/admin') }}">Order <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link {{ Request::is('product') ? 'active' : '' }}" href="{{ route('admin.products.index') }}">Products</a>
         </div>
     </div>
 </nav>
@@ -368,6 +366,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             @endforeach
         </div>
