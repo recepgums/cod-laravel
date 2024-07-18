@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\FestHelper;
 use App\Models\City;
 use App\Models\Order;
 use App\Models\OrderTag;
@@ -16,14 +17,19 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-
     public function index()
     {
-        $orders = Order::query()->with('tags','city','district','neighborhood')->orderByDesc('created_at')->paginate(20);
+        $orders = Order::query()
+            ->with('tags', 'city', 'district', 'neighborhood')
+            ->withCount('tags')
+            ->orderBy('tags_count', 'asc')
+            ->orderByDesc('created_at')
+            ->paginate(50);
+
         $tags = Tag::all();
         $cities = City::query()->orderBy('name')->get();
 
-        return view('admin.dashboard', ['orders' => $orders, 'tags' => $tags,'cities' => $cities]);
+        return view('admin.dashboard', ['orders' => $orders, 'tags' => $tags, 'cities' => $cities]);
     }
 
     public function storeOrder(Request $request)
@@ -71,10 +77,26 @@ class AdminController extends Controller
 
     public function products()
     {
-        $products = Product::query()->with(['media','comments' => function($commentsQuery){
+        $products = Product::query()->with(['media', 'comments' => function ($commentsQuery) {
             $commentsQuery->orderBy('order');
         }])->get();
 
-        return view('admin.product',['products' => $products]);
+        return view('admin.product', ['products' => $products]);
+    }
+
+    public function festStore(Order $order, Request $request)
+    {
+        $festHelper = new FestHelper();
+
+        try {
+            $festHelper->storeConsignment($order);
+        } catch (\Exception $exception) {
+            dd($exception);
+        }
+        $tag = Tag::where('name', 'fest')->first();
+
+        $order->tags()->attach($tag);
+
+        return redirect()->back();
     }
 }

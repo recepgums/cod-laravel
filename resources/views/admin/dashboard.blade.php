@@ -213,6 +213,8 @@
                 <th>Address</th>
                 <th>Products/Price</th>
                 <th>Note/Etiketler</th>
+                <th>Referral</th>
+                <th>Actions</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -270,13 +272,22 @@
                             </select>
                         </td>
                         <td>
+                          <span>{{str_contains($order->ref_url, 'ttclid') ? "Tiktok" : (str_contains($order->ref_url,'facebook') ? "Facebook" : "")}}</span>
+                        </td>
+                        <td>
                             <button type="submit" class="btn btn-success btn-sm">Update</button>
                             <br>
                             <button type="button" class="btn btn-danger btn-sm delete-order" data-order-id="{{ $order->id }}">Delete</button>
                             <br>
-                            <a href="#" id="whatsappOrderBtn-{{ $order->id }}" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
                         </td>
                     </form>
+                    <td>
+                        <form action="{{route('admin.order.festStore',$order)}}" method="post">
+                            @csrf
+                            <a href="#" id="whatsappOrderBtn-{{ $order->id }}" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
+                            <button class="btn btn-info">Fest</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
             </tbody>
@@ -496,7 +507,10 @@
 
 <script>
     $(document).ready(function() {
-        $('#ordersTable').DataTable();
+        $('#ordersTable').DataTable({
+            "order": [],
+            "paging": false,
+        });
     });
 </script>
 

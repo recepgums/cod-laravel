@@ -37,12 +37,13 @@ class FestHelper
 
     public function storeConsignment(Order $order)
     {
+
         $response = Http::withHeaders([
             'Authorization'=>'5KORmDz3wpjNGB6s79rUtPAHbh01QfJg4yCMIdna',
             'From' => 'trendygoods@festcargo.com'
         ])->post($this->base_url.'/consignment/add',[
             'customer' => $order->name,
-            'province_name' => "AYDIN",//maybe id
+            'province_name' => $order->city?->name,//maybe id
             'county_name' => $order->district?->name,//maybe id
             'district' => $order->neighborhood?->name,//maybe id
             'address' => $order->address,
@@ -60,5 +61,7 @@ class FestHelper
         if ($response->successful()){
             return json_decode($response->body())?->result;
         }
+
+        dd($response->body());
     }
 }

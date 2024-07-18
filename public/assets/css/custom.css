@@ -472,7 +472,7 @@ strong {
 }
 
 .product-option .discount {
-    background-color: #ff5722;
+    background: linear-gradient(90deg, #FF6A00 0%, #EE0979 100%);
     color: white;
     padding: 2px 5px;
     border-radius: 3px;

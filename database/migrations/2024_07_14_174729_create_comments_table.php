@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained();
             $table->string('rating');
             $table->string('author');
-            $table->string('content');
+            $table->text('content');
             $table->string('photo_url_1');
             $table->integer('order')->nullable();
             $table->timestamps();

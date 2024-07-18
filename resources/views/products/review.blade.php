@@ -140,17 +140,30 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
                          alt="product image">
                     <div class="details">
                         <div class="info">
-                            <span class="title">{{$quantity}} Adet <small class="kargo-bedava">Kargo Bedava</small>
-                            @if(!$loop->first)
-                                <div class="discount" style="max-width: 115px">Tanesi {{number_format(($price - $finalDiscount)/$quantity,0)}}TL</div>
+                            @if($product->slug=="banyo-paspasi")
+                                <span class="title">{{$quantity}} Alana {{$quantity}} Bedava <small
+                                        class="kargo-bedava">Kargo Bedava</small>
+                                        <div class="discount" style="max-width: 115px">Tanesi {{number_format(($price - $finalDiscount)/($quantity*2),0)}}TL</div>
+                                    </span>
+                                <span class="price">{{$price - $finalDiscount}}.00TL
+                                    <br>
+                                        @if ($finalDiscount)
+                                        <div class="original-price">{{($product->price * $quantity)}}.00TL</div>
+                                    @endif
+                                    </span>
+                            @else
+                                <span class="title">{{$quantity}} Adet <small class="kargo-bedava">Kargo Bedava</small>
+                                @if(!$loop->first)
+                                        <div class="discount" style="max-width: 115px">Tanesi {{number_format(($price - $finalDiscount)/$quantity,0)}}TL</div>
+                                    @endif
+                                </span>
+                                <span class="price">{{$price - $finalDiscount}}.00TL
+                                <br>
+                                    @if ($finalDiscount)
+                                        <div class="original-price">{{($product->price * $quantity)}}.00TL</div>
+                                    @endif
+                                </span>
                             @endif
-                            </span>
-                            <span class="price">{{$price - $finalDiscount}}.00TL
-                            <br>
-                                @if ($finalDiscount)
-                                    <div class="original-price">{{($product->price * $quantity)}}.00TL</div>
-                                @endif
-                            </span>
                         </div>
                     </div>
                 </div>
