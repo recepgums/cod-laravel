@@ -56,7 +56,10 @@ Route::middleware(['auth'])->group(function () {
         Route::post('orders/store', [Controllers\AdminController::class, 'storeOrder'])->name('admin.order.store');
         Route::post('orders/{order}/update', [Controllers\AdminController::class, 'updateOrder'])->name('admin.order.update');
         Route::post('orders/{order}', [Controllers\AdminController::class, 'orderDestroy'])->name('admin.order.orderDestroy');
+
         Route::post('orders/{order}/fest', [Controllers\AdminController::class, 'festStore'])->name('admin.order.festStore');
+        Route::delete('orders/{order}/fest/delete', [Controllers\AdminController::class, 'festDestroy'])->name('admin.order.festDestroy');
+        Route::post('orders/{order}/fest/update', [Controllers\AdminController::class, 'festUpdate'])->name('admin.order.festUpdate');
 
         Route::get('product', [Controllers\AdminController::class, 'products'])->name('admin.products.index');
         Route::post('product', [Controllers\ProductController::class, 'store'])->name('admin.products.store');

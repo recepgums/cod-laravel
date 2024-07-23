@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('products');
             $table->string('total_price');
+            $table->string('barcode')->nullable();
             $table->text('ref_url',2000)->nullable();
             $table->string('note')->nullable();
             $table->boolean('is_done')->default(false);

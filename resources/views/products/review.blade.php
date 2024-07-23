@@ -10,6 +10,13 @@ if (!isset($_SESSION['countdown_end_time'])) {
     $_SESSION['countdown_end_time'] = time() + (3 * 60 * 45); // 2 hours from now
 }
 
+if (!isset($_SESSION['sales_date']) || $_SESSION['sales_date'] != date('Y-m-d')) {
+    $_SESSION['sales_count'] = rand(30, 60);
+    $_SESSION['sales_date'] = date('Y-m-d');
+}
+
+$sales_count = $_SESSION['sales_count'];
+
 // Get the current time and the end time
 $current_time = time();
 $countdown_end_time = $_SESSION['countdown_end_time'];
@@ -87,7 +94,7 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
             <div></div>
             <div></div>
             <div class="sales-info">
-                <span>36 adet satıldı</span>
+                <span><?php echo $sales_count; ?> adet satıldı</span>
                 <div class="progress-bar">
                     <div class="progress"></div>
                 </div>
@@ -141,9 +148,9 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
                     <div class="details">
                         <div class="info">
                             @if($product->slug=="banyo-paspasi")
-                                <span class="title">{{$quantity}} Alana {{$quantity}} Bedava <small
-                                        class="kargo-bedava">Kargo Bedava</small>
-                                        <div class="discount" style="max-width: 115px">Tanesi {{number_format(($price - $finalDiscount)/($quantity*2),0)}}TL</div>
+                                <span class="title">{{$quantity}} Alana {{$quantity}} Bedava
+{{--                                    <small class="kargo-bedava">Kargo Bedava</small>--}}
+                                        <div class="discount" style="max-width: 115px">Ücretsiz Kargo</div>
                                     </span>
                                 <span class="price">{{$price - $finalDiscount}}.00TL
                                     <br>
@@ -354,6 +361,14 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
                 </div>
             </div>
         </div>
+    <div class="sticky-footer">
+        <div class="product-info">
+            <div class="product-name">{{$product->name}}</div>
+            <div class="product-price">{{$product->price}}TL <span class="original-price">{{$product->old_price}}TL</span></div>
+        </div>
+        <button class="add-to-cart-btn"  data-toggle="modal" data-target="#fullScreenModal" onclick="scrollToOrderForm()">Sipariş Ver</button>
+    </div>
+
 @endsection
 
 @section('scripts')

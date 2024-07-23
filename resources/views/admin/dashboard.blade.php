@@ -282,11 +282,26 @@
                         </td>
                     </form>
                     <td>
-                        <form action="{{route('admin.order.festStore',$order)}}" method="post">
-                            @csrf
-                            <a href="#" id="whatsappOrderBtn-{{ $order->id }}" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
-                            <button class="btn btn-info">Fest</button>
-                        </form>
+                        <a href="#" id="whatsappOrderBtn-{{ $order->id }}" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
+
+                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="sr-only">Toggle Dropdown</span>Fest
+                        </button>
+                        <div class="dropdown-menu">
+                            <form action="{{route('admin.order.festStore',$order)}}" method="post">
+                                @csrf
+                                <button class="dropdown-item btn btn-info" type="submit">Aktar</button>
+                            </form>
+                            <form action="{{route('admin.order.festUpdate',$order)}}" method="post">
+                                @csrf
+                                <button class="dropdown-item btn btn-info" type="submit">Güncelle</button>
+                            </form>
+                            <form action="{{route('admin.order.festDestroy',$order)}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="dropdown-item btn btn-info" type="submit">Sil</button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

@@ -175,10 +175,10 @@
                                     <div class="product-img product-img-zoom">
                                         <a href="#">
                                             <img class="default-img"
-                                                 src="{{asset('assets/imgs/products/trendsand-kum-sanati/yenifirsat2.jpg')}}"
+                                                 src="{{asset('assets/imgs/products/dokunmatik-kristal-led/resim_2024-01-17_000513973 (1).webp')}}"
                                                  alt="">
                                             <img class="hover-img"
-                                                 src="{{asset('assets/imgs/products/trendsand-kum-sanati/yenifistarl4.jpg')}}"
+                                                 src="{{asset('assets/imgs/products/dokunmatik-kristal-led/resim_2024-01-17_000513973 (1).webp')}}"
                                                  alt="">
                                         </a>
                                     </div>
@@ -188,11 +188,11 @@
                                 </div>
                                 <div class="product-content-wrap pt-2">
                                     <h2>
-                                        <a href="#">TrendSand Kum Sanatı</a>
+                                        <a href="#">Dokunmatik Kristal Lamba</a>
                                     </h2>
                                     <div class="rating-result" title="96%">
                                     <span>
-                                        <span>4.8</span>
+                                        <span>4.5</span>
                                     </span>
                                     </div>
                                     <div class="product-price">
@@ -202,9 +202,11 @@
                                 </div>
                                 <div class="row mb-30 mx-auto">
                                     <div class="col-12">
-                                        <button class="btn w-100 btn-sm add-to-cart" data-product-name="TrendSand Kum Sanati"
+                                        <button class="btn w-100 btn-sm add-to-cart"
+                                                style="background: linear-gradient(90deg, #FF6A00 0%, #EE0979 100%);font-weight: 600;font-size: 15px;border: 0 solid "
+                                                data-product-name="Dokunmatik Kristal Lamba"
                                                 data-product-price="248">
-                                            <i class="fi-rs-shopping-bag mr-5"></i>Sepete Ekle
+                                            <i class="fi-rs-shopping-bag mr-5"></i>Bunu da istiyorum
                                         </button>
                                     </div>
                                  {{--   <div class="col-6">
@@ -214,6 +216,57 @@
                                     </div>--}}
                                 </div>
                                 <div id="details-1" class="collapse px-3 pb-2">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4">
+                            <div class="product-cart-wrap mb-30">
+                                <div class="product-img-action-wrap">
+                                    <div class="product-img product-img-zoom">
+                                        <a href="#">
+                                            <img class="default-img"
+                                                 src="{{asset('storage/14/usage.gif')}}"
+                                                 alt="">
+                                            <img class="hover-img"
+                                                 src="{{asset('storage/14/usage.gif')}}"
+                                                 alt="">
+                                        </a>
+                                    </div>
+                                    <div class="product-badges product-badges-position product-badges-mrg">
+                                        <span class="hot">+100.00TL indirimli</span>
+                                    </div>
+                                </div>
+                                <div class="product-content-wrap pt-2">
+                                    <h2>
+                                        <a href="#">MagnoGlow Lamba</a>
+                                    </h2>
+                                    <div class="rating-result" title="96%">
+                                    <span>
+                                        <span>4.7</span>
+                                    </span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span>299,00TL </span>
+                                        <span class="old-price">399,00TL</span>
+                                    </div>
+                                </div>
+                                <div class="row mb-30 mx-auto">
+                                    <div class="col-12">
+                                        <button class="btn w-100 btn-sm add-to-cart" data-product-name="MagnoGlow Lamba"
+                                                style="background: linear-gradient(90deg, #FF6A00 0%, #EE0979 100%);font-weight: 600;font-size: 15px;border: 0 solid "
+                                                data-product-price="299">
+                                            <i class="fi-rs-shopping-bag mr-5"></i>Bunu da istiyorum
+                                        </button>
+                                    </div>
+                                 {{--   <div class="col-6">
+                                        <button class="btn w-100 btn-sm btn-secondary" data-toggle="collapse"
+                                                data-target="#details-1">Detaylarını Gör <i
+                                                class="fi-rs-angle-down mr-5"></i></button>
+                                    </div>--}}
+                                </div>
+                                <div id="details-2" class="collapse px-3 pb-2">
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
                                         incididunt ut labore et dolore magna aliqua.</p>
                                 </div>

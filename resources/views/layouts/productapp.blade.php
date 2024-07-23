@@ -41,6 +41,15 @@
             ttq.page();
         }(window, document, 'ttq');
     </script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WZY6VLXMF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6WZY6VLXMF');
+    </script>
 
     <script>
         !function(f,b,e,v,n,t,s)
@@ -119,9 +128,9 @@
         </div>
     </section>
 </footer>
-<div class="whatsapp-button" id="whatsappButton">
+{{--<div class="whatsapp-button" id="whatsappButton">
     <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png" alt="WhatsApp">
-</div>
+</div>--}}
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

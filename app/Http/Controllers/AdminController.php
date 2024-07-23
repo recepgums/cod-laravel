@@ -99,4 +99,35 @@ class AdminController extends Controller
 
         return redirect()->back();
     }
+
+    public function festDestroy(Order $order)
+    {
+        $festHelper = new FestHelper();
+
+        try {
+            $festHelper->deleteConsignment($order);
+        } catch (\Exception $exception) {
+            dd($exception);
+        }
+       /* $tag = Tag::where('name', 'fest')->first();
+
+        $order->tags()->attach($tag);*/
+
+        return redirect()->back();
+    }
+    public function festUpdate(Order $order)
+    {
+        $festHelper = new FestHelper();
+
+        try {
+            $festHelper->updateConsignment($order);
+        } catch (\Exception $exception) {
+            dd($exception);
+        }
+       /* $tag = Tag::where('name', 'fest')->first();
+
+        $order->tags()->attach($tag);*/
+
+        return redirect()->back();
+    }
 }

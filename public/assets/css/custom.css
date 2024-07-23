@@ -65,8 +65,8 @@
 
 .whatsapp-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 85px;
+    right: 5px;
     width: 60px;
     height: 60px;
     background-color: #25D366;
@@ -76,7 +76,7 @@
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    z-index: 1000;
+    z-index: 999999999999;
 }
 
 .whatsapp-button img {
@@ -858,4 +858,40 @@ strong {
     line-height: 1.2; /* Satır yüksekliğini ayarlayarak okunabilirliği artırın */
     font-weight: normal; /* Yazı kalınlığını normal yapın */
     margin-top: 0.5em; /* Üst boşluk ekleyin */
+}
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+}
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+.product-name {
+    font-weight: bold;
+}
+.product-price {
+    color: #27ae60;
+}
+.original-price {
+    text-decoration: line-through;
+    color: #7f8c8d;
+}
+.add-to-cart-btn {
+    background-color: #f27a1a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }

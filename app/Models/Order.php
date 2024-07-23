@@ -20,6 +20,7 @@ class Order extends Model
         'is_done',
         'note',
         'ref_url',
+        'barcode',
     ];
 
 
