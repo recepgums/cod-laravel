@@ -60,6 +60,13 @@
             'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1512181132850860');
         fbq('track', 'PageView');
+
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6WZY6VLXMF');
     </script>
     <style>
         .contact-widget {
@@ -227,20 +234,20 @@
                                     <div class="product-img product-img-zoom">
                                         <a href="#">
                                             <img class="default-img"
-                                                 src="{{asset('storage/14/usage.gif')}}"
+                                                 src="{{asset('storage/1/1.webp')}}"
                                                  alt="">
                                             <img class="hover-img"
-                                                 src="{{asset('storage/14/usage.gif')}}"
+                                                 src="{{asset('storage/1/1.webp')}}"
                                                  alt="">
                                         </a>
                                     </div>
                                     <div class="product-badges product-badges-position product-badges-mrg">
-                                        <span class="hot">+100.00TL indirimli</span>
+                                        <span class="hot">+150.00TL indirimli</span>
                                     </div>
                                 </div>
                                 <div class="product-content-wrap pt-2">
                                     <h2>
-                                        <a href="#">MagnoGlow Lamba</a>
+                                        <a href="#">Mıknatıslı 3 Renk Modlu Lamba</a>
                                     </h2>
                                     <div class="rating-result" title="96%">
                                     <span>
@@ -248,15 +255,15 @@
                                     </span>
                                     </div>
                                     <div class="product-price">
-                                        <span>299,00TL </span>
+                                        <span>249,00TL </span>
                                         <span class="old-price">399,00TL</span>
                                     </div>
                                 </div>
                                 <div class="row mb-30 mx-auto">
                                     <div class="col-12">
-                                        <button class="btn w-100 btn-sm add-to-cart" data-product-name="MagnoGlow Lamba"
+                                        <button class="btn w-100 btn-sm add-to-cart" data-product-name="Mıknatıslı 3 Renk Modlu Lamba"
                                                 style="background: linear-gradient(90deg, #FF6A00 0%, #EE0979 100%);font-weight: 600;font-size: 15px;border: 0 solid "
-                                                data-product-price="299">
+                                                data-product-price="249">
                                             <i class="fi-rs-shopping-bag mr-5"></i>Bunu da istiyorum
                                         </button>
                                     </div>

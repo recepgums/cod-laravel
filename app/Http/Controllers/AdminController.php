@@ -100,34 +100,14 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function festDestroy(Order $order)
+    public function getStatusView(Order $order, Request $request)
     {
         $festHelper = new FestHelper();
 
-        try {
-            $festHelper->deleteConsignment($order);
-        } catch (\Exception $exception) {
-            dd($exception);
-        }
-       /* $tag = Tag::where('name', 'fest')->first();
+        $response = $festHelper->getStatusByBarcode($order->barcode);
 
-        $order->tags()->attach($tag);*/
+        return response()->json($response);
 
-        return redirect()->back();
-    }
-    public function festUpdate(Order $order)
-    {
-        $festHelper = new FestHelper();
-
-        try {
-            $festHelper->updateConsignment($order);
-        } catch (\Exception $exception) {
-            dd($exception);
-        }
-       /* $tag = Tag::where('name', 'fest')->first();
-
-        $order->tags()->attach($tag);*/
-
-        return redirect()->back();
+//        return view('admin.order_status', ['htmlContent' => $response]);
     }
 }

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Order extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
         'name',
         'phone',
@@ -23,6 +24,28 @@ class Order extends Model
         'barcode',
     ];
 
+    const DISTRICT_DETECTION_WORDS = [
+        ' mah', ' MAH', ' mh', 'MH',
+        'mahallesi', 'mahalle'
+    ];
+
+    const STATUS = [
+        "00" => "Kabul Bekliyor",
+        "01" => "Kabul Edildi",
+        "10" => "Teslim Edildi",
+        "20" => "İade - İade Süreci Başlatıldı",
+        "21" => "İade - Göndericiye İade Edildi",
+        "22" => "İade - Kurye İade Sürecini Başlattı",
+        "23" => "İade - İade Çıkış Şubesine Ulaştı",
+        "24" => "İade - Şubeden İade Süreci Başlatıldı",
+        "30" => "Teslim Edilemedi - Tekrar Dağıtım Planlanında",
+        "40" => "Transfer Sürecinde",
+        "41" => "Teslimat Şubesinde",
+        "42" => "Kurye Dağıtımda",
+        "50" => "Teslim Edilemedi",
+        "60" => "Teslim Edilemedi - Teslimat Şubesinde",
+    ];
+
 
     public function district()
     {
@@ -36,7 +59,7 @@ class Order extends Model
 
     public function neighborhood()
     {
-        return $this->belongsTo(Neighborhood::class,'neighborhood_id', 'fest_id');
+        return $this->belongsTo(Neighborhood::class, 'neighborhood_id', 'fest_id');
     }
 
     public function tags()
@@ -47,7 +70,7 @@ class Order extends Model
     public function getWhatsappMessage()
     {
         return "Merhaba " . $this->name . ", \n\nSiparişinizi aldık: \n\n"
-    . $this->products . "\n\n Toplam: " . $this->total_price . "TL \n\n Siparişinizi onaylıyor musunuz?";
+            . $this->products . "\n\n Toplam: " . $this->total_price . "TL \n\n Siparişinizi onaylıyor musunuz?";
     }
 
     public function setPhoneAttribute($value)
@@ -64,5 +87,15 @@ class Order extends Model
         }
 
         return $phone;
+    }
+
+    public static function addressContainsDistrictWord($address)
+    {
+        foreach (self::DISTRICT_DETECTION_WORDS as $word) {
+            if ($word != 0 && stripos($address, $word) !== false) {
+                return true;
+            }
+        }
+        return false;
     }
 }

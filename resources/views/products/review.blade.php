@@ -228,6 +228,7 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
                             <input type="hidden" name="quantity" id="quantity" value="1">
                             <input type="hidden" name="total_price" id="total_price" value="{{$product->price}}">
                             <input type="hidden" name="products" value="{{$product->name}}">
+                            <input type="hidden" name="product_id" value="{{$product->id}}">
                             <div class="">
                                 @foreach(json_decode($product->getSettings('quantity_price')) as $quantity => $price)
                                     @php
@@ -305,7 +306,7 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
                                 <div class="mb-3">
                                     <div class="input-group">
                                         <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                                        <input name="phone" required type="tel" class="form-control" placeholder="0__________">
+                                        <input name="phone" required type="tel" class="form-control" placeholder="05XXXXXXXXX">
                                     </div>
                                 </div>
                                 {{--<h2 class="note text-center text-danger my-3">
@@ -364,7 +365,10 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
     <div class="sticky-footer">
         <div class="product-info">
             <div class="product-name">{{$product->name}}</div>
-            <div class="product-price">{{$product->price}}TL <span class="original-price">{{$product->old_price}}TL</span></div>
+            <div class="product-price">
+                <span class="original-price">{{$product->old_price}}TL</span>
+                <span class="text-danger" style="font-weight: bolder;font-size: 1.1rem">{{$product->price}}TL </span>
+            </div>
         </div>
         <button class="add-to-cart-btn"  data-toggle="modal" data-target="#fullScreenModal" onclick="scrollToOrderForm()">Sipariş Ver</button>
     </div>
@@ -639,7 +643,7 @@ $countdown_end_time = $_SESSION['countdown_end_time'];
             }
             lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
         }, false);
-        $('input[name="phone"]').mask('0 (999) 999 9999');
+        // $('input[name="phone"]').mask('0 (999) 999 9999');
 
 
         function calculateRemainingTime() {

@@ -221,9 +221,15 @@
             <tbody>
             @foreach($orders as $order)
                 <tr>
+                    <td>
+                        <small>{{ $order->created_at }}</small>
+                        <a href="{{route('admin.order.getStatusAsView',$order)}}" target="_blank">Hareketler</a>
+                        <br>
+                        <a class="btn btn-primary" href="http://185.241.103.28/aras?har_kod={{$order->barcode}}" target="_blank">Sorgula</a>
+                    </td>
+
                     <form action="{{ route('admin.order.update', ['order' => $order->id]) }}" method="post">
                         @csrf
-                        <td><small>{{ $order->created_at }}</small></td>
                         <td>
                             <input type="text" name="name" value="{{ $order->name }}" class="form-control">
                             <input type="text" name="phone" value="{{ $order->phone }}" class="form-control">
@@ -284,24 +290,11 @@
                     <td>
                         <a href="#" id="whatsappOrderBtn-{{ $order->id }}" target="_blank" class="btn btn-primary btn-sm">WhatsApp</a>
 
-                        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="sr-only">Toggle Dropdown</span>Fest
-                        </button>
-                        <div class="dropdown-menu">
                             <form action="{{route('admin.order.festStore',$order)}}" method="post">
                                 @csrf
-                                <button class="dropdown-item btn btn-info" type="submit">Aktar</button>
+                                <button class="btn btn-info" type="submit">Aktar</button>
                             </form>
-                            <form action="{{route('admin.order.festUpdate',$order)}}" method="post">
-                                @csrf
-                                <button class="dropdown-item btn btn-info" type="submit">Güncelle</button>
-                            </form>
-                            <form action="{{route('admin.order.festDestroy',$order)}}" method="post">
-                                @csrf
-                                @method('delete')
-                                <button class="dropdown-item btn btn-info" type="submit">Sil</button>
-                            </form>
-                        </div>
+
                     </td>
                 </tr>
             @endforeach

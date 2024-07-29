@@ -36,6 +36,13 @@
             height: 35px;
         }
     </style>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6WZY6VLXMF');
+    </script>
     @yield('styles')
 </head>
 

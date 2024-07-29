@@ -6,6 +6,8 @@ use App\Helpers\WhatsappHelper;
 use App\Models\District;
 use App\Models\Neighborhood;
 use App\Models\Order;
+use App\Models\OrderProduct;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -24,18 +26,35 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+        $address = $request->address;
+
+        if (! Order::addressContainsDistrictWord($address)){
+            $address = District::find($request->get('district_id'))?->name . " MAH.  " . $address;
+        }
+
         $order = Order::create([
             'name' => $request->get('name'),
             'phone' => $request->get('phone'),
             'city_id' => $request->get('city_id'),
             'district_id' => $request->get('district_id'),
             'neighborhood_id' => $request->get('neighborhood_id'),
-            'address' => $request->get('address'),
+            'address' => $address,
             'products' => $request->get('quantity') . " X ". $request->get('products'),
             'total_price' => $request->get('total_price') ?? '0',
             'is_done' => false,
             'ref_url' => $request->get('ref_url'),
         ]);
+
+        if ($request->get('product_id')){
+            $product = Product::find($request->get('product_id'));
+
+            OrderProduct::create([
+                'product_id' => $product->id,
+                'order_id' => $order->id,
+                'quantity' => $request->get('quantity'),
+                'price' => $product->price * $request->get('quantity'),
+            ]);
+        }
 
         return redirect()->route('upsell', ['order' => $order]);
     }

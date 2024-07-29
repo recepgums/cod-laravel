@@ -862,6 +862,7 @@ strong {
 .sticky-footer {
     position: fixed;
     bottom: 0;
+    z-index: 2;
     width: 100%;
     background-color: white;
     box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
@@ -877,6 +878,7 @@ strong {
 }
 .product-name {
     font-weight: bold;
+    font-size: 1.1rem;
 }
 .product-price {
     color: #27ae60;
